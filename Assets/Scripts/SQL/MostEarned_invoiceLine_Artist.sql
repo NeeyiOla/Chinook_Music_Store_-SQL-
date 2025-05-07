@@ -23,3 +23,35 @@ SELECT  Artist.ArtistId,
         ON Customer.CustomerId = Invoice.CustomerId
 GROUP BY 1
 ORDER BY 3 DESC;
+
+SELECT 
+    Tbl.Artist_name,
+    Tbl.CustomerId,
+    Tbl.FirstName,
+	Tbl.LastName,
+    Tbl.Total
+FROM (
+    SELECT  
+        Artist.ArtistId AS Artist_Id,
+        Artist.Name AS Artist_name,
+        Customer.CustomerId AS CustomerId,
+		Customer.FirstName AS FirstName,
+        Customer.LastName AS LastName,
+        SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS Total
+    FROM Artist
+    JOIN Album
+        ON Artist.ArtistId = Album.ArtistId
+    JOIN Track
+        ON Track.AlbumId = Album.AlbumId
+    JOIN InvoiceLine
+        ON InvoiceLine.TrackId = Track.TrackId
+    JOIN Invoice
+        ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+    JOIN Customer
+        ON Customer.CustomerId = Invoice.CustomerId
+    WHERE Artist.Name = 'Iron Maiden'
+    GROUP BY Artist.ArtistId, Artist.Name, Customer.CustomerId, Customer.LastName
+) Tbl
+ORDER BY Tbl.Total DESC;
+
+
