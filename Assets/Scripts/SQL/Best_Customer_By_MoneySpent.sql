@@ -17,3 +17,15 @@ JOIN Customer
 ON Invoice.CustomerId = Customer.CustomerId
 GROUP BY Customer.FirstName
 ORDER BY 4 DESC;
+
+SELECT 
+    Customer.CustomerId,
+    Customer.FirstName,
+    Customer.LastName,
+    InvoiceLine.InvoiceLineId,
+    SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS Sales
+FROM Customer
+JOIN Invoice ON Invoice.CustomerId = Customer.CustomerId
+JOIN InvoiceLine ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+GROUP BY 1
+ORDER BY Sales DESC;
