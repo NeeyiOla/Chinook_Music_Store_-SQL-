@@ -2,7 +2,7 @@
 
 ## Chinook Music Store: Querying Chinook Database to extract Data
 
-![Chinook_Music_Fest.png](#Assets/Images/Chinook_Music_Fest.png)
+![Chinook Music Fest.png](#Assets/Images/Chinook_Music_Fest.png)
 
 # Table of Content
 - [Project Title](#Project-Title)
