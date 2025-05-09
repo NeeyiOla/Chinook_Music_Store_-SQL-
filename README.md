@@ -271,9 +271,94 @@ ORDER BY Tbl.BillingCountry, Tbl.Amount_Spent DESC;
 
 #### Problem Statement 3: Optimize Product Offering Based on Media Type and Album Popularity
 **Tailored Question:**
-10. Top 10 Country Total_Spent by MediaType and Spending Categories.
+
+```sql
+/*
+-- Top 10 Country Total_Spent by MediaType and Spending Categories.
+*/
+
+SELECT  
+    MediaType.MediaTypeId,
+    MediaType.Name,
+    Invoice.BillingCountry,
+    SUM(Invoice.Total) AS Total_Spent,
+    CASE 
+        WHEN SUM(Invoice.Total) > 1000 THEN 'High Spender'
+        WHEN SUM(Invoice.Total) BETWEEN 400 AND 1000 THEN 'Medium Spender'
+        ELSE 'Low Spender'
+    END AS Spending_Category
+FROM MediaType
+JOIN Track
+    ON MediaType.MediaTypeId = Track.MediaTypeId
+JOIN InvoiceLine
+    ON InvoiceLine.TrackId = Track.TrackId
+JOIN Invoice
+    ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+JOIN Customer
+    ON Customer.CustomerId = Invoice.CustomerId
+GROUP BY MediaType.MediaTypeId, MediaType.Name, Invoice.BillingCountry
+ORDER BY Total_Spent DESC
+LIMIT 10;
+```
+
+```sql
+/*
 11. Which is the most popular media type?
-13. Top 3 Most Sold Albums by year and customer count.
+*/
+
+SELECT  MediaType.MediaTypeId,
+		MediaType.Name,
+		COUNT(*) AS MediaType_cOUNT
+FROM Track
+JOIN MediaType
+ON MediaType.MediaTypeId = Track.MediaTypeId
+GROUP BY MediaType.MediaTypeId
+ORDER BY 3 DESC;
+
+```
+
+```sql
+/*
+-- Top 3 Most Sold Albums by year and customer count that contributed invoice total fro each year
+-- with Max Date = 2013-12-22 and Min Date = 2009-01-01
+*/
+WITH AlbumSales AS (
+    SELECT  
+        Album.AlbumId,
+        Album.Title AS AlbumTitle,
+        strftime('%Y', Invoice.InvoiceDate) AS Year,
+        SUM(Invoice.Total) AS TotalSales,
+        COUNT(DISTINCT Invoice.CustomerId) AS CustomerCount
+    FROM Invoice
+    JOIN InvoiceLine
+        ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+    JOIN Track
+        ON InvoiceLine.TrackId = Track.TrackId
+    JOIN Album
+        ON Track.AlbumId = Album.AlbumId
+    WHERE Invoice.InvoiceDate BETWEEN '2009-01-01' AND '2013-12-22'
+    GROUP BY Album.AlbumId, Album.Title, Year
+),
+RankedAlbums AS (
+    SELECT 
+        AlbumId,
+        AlbumTitle,
+        Year,
+        TotalSales,
+        CustomerCount,
+        RANK() OVER (PARTITION BY Year ORDER BY TotalSales DESC) AS SalesRank
+    FROM AlbumSales
+)
+SELECT 
+    AlbumTitle,
+    Year,
+    TotalSales,
+    CustomerCount
+FROM RankedAlbums
+WHERE SalesRank <= 3
+ORDER BY Year, TotalSales DESC;
+
+```
 
 #### Problem Statement 4: Evaluate Product Catalog Based on Track Performance
 **Tailored Question:**
