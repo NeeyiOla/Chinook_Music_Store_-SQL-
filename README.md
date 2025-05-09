@@ -122,10 +122,105 @@ GROUP BY BillingCountry
 ORDER BY 2 DESC;
 ```
 
+```sql
+/*
 1. Which city has the best customers?
-2. Who is the best customer?
-3. Which customer spent the most on the top-earning artist?
-4. Customer who spent the most in each country, and their spending amount.
+-- As we want to throw a promotional Music Festival in the city we made the most money.
+*/
+SELECT BillingCity,
+		SUM(Total) AS Total_Sales
+FROM Invoice
+GROUP BY BillingCity
+ORDER BY Total_Sales DESC
+LIMIT 1;
+```
+
+```sql
+-- Who is the best customer?
+-- The customer who spent the most moneyin the history of the nusic store.
+1
+SELECT  Customer.CustomerId,
+		Customer.FirstName,
+		Customer.LastName,
+		SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS Total
+FROM InvoiceLine
+JOIN Invoice
+ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+JOIN Customer
+ON Invoice.CustomerId = Customer.CustomerId
+GROUP BY Customer.FirstName
+ORDER BY 4 DESC;
+
+SELECT 
+    Customer.CustomerId,
+    Customer.FirstName,
+    Customer.LastName,
+    InvoiceLine.InvoiceLineId,
+    SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS Sales
+FROM Customer
+JOIN Invoice ON Invoice.CustomerId = Customer.CustomerId
+JOIN InvoiceLine ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+GROUP BY 1
+ORDER BY Sales DESC;
+
+```
+```sql
+/*
+-- frist, I find which artist has the mostaccording to the InvoiceLines and then find Which customer spent the most on the top-earning artist?
+*/
+SELECT * FROM Invoice;
+
+SELECT  Artist.ArtistId,
+		Artist.Name,
+		COUNT(*) AS Total
+ FROM Artist
+    JOIN Album
+        ON Artist.ArtistId = Album.ArtistId
+    JOIN Track
+        ON Track.AlbumId = Album.AlbumId
+    JOIN InvoiceLine
+        ON InvoiceLine.TrackId = Track.TrackId
+    JOIN Invoice
+        ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+    JOIN Customer
+        ON Customer.CustomerId = Invoice.CustomerId
+GROUP BY 1
+ORDER BY 3 DESC;
+
+SELECT 
+    Tbl.Artist_name,
+    Tbl.CustomerId,
+    Tbl.FirstName,
+	Tbl.LastName,
+    Tbl.Total
+FROM (
+    SELECT  
+        Artist.ArtistId AS Artist_Id,
+        Artist.Name AS Artist_name,
+        Customer.CustomerId AS CustomerId,
+		Customer.FirstName AS FirstName,
+        Customer.LastName AS LastName,
+        SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS Total
+    FROM Artist
+    JOIN Album
+        ON Artist.ArtistId = Album.ArtistId
+    JOIN Track
+        ON Track.AlbumId = Album.AlbumId
+    JOIN InvoiceLine
+        ON InvoiceLine.TrackId = Track.TrackId
+    JOIN Invoice
+        ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+    JOIN Customer
+        ON Customer.CustomerId = Invoice.CustomerId
+    WHERE Artist.Name = 'Iron Maiden'
+    GROUP BY Artist.ArtistId, Artist.Name, Customer.CustomerId, Customer.LastName
+) Tbl
+ORDER BY Tbl.Total DESC;
+```
+
+```sql
+/*
+-- Customer who spent the most in each country, and their spending amount.
 
 #### Problem Statement 2: Understand Music Preferences and Customer Behavior
 **Tailored Questions:**
