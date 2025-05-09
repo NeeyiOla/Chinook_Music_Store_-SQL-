@@ -168,6 +168,7 @@ ORDER BY Sales DESC;
 /*
 -- frist, I find which artist has the mostaccording to the InvoiceLines and then find Which customer spent the most on the top-earning artist?
 */
+
 SELECT * FROM Invoice;
 
 SELECT  Artist.ArtistId,
@@ -221,6 +222,45 @@ ORDER BY Tbl.Total DESC;
 ```sql
 /*
 -- Customer who spent the most in each country, and their spending amount.
+-- Making sure query retuen the country along with the top customers and how much money they spent.
+*/
+
+SELECT  
+    Tbl.BillingCountry AS Country,
+    Tbl.FirstName,
+    Tbl.LastName,
+    Tbl.Amount_Spent AS Max_Spent
+FROM (
+    SELECT  
+        Customer.CustomerId,
+        Customer.FirstName,
+        Customer.LastName,
+        Invoice.BillingCountry,
+        SUM(Invoice.Total) AS Amount_Spent
+    FROM Customer
+    JOIN Invoice
+        ON Invoice.CustomerId = Customer.CustomerId
+    GROUP BY Customer.CustomerId, Customer.FirstName, Customer.LastName, Invoice.BillingCountry
+) Tbl
+WHERE Tbl.Amount_Spent = (
+    SELECT MAX(SubTbl.Amount_Spent)
+    FROM (
+        SELECT  
+            Customer.CustomerId,
+            Customer.FirstName,
+            Customer.LastName,
+            Invoice.BillingCountry,
+            SUM(Invoice.Total) AS Amount_Spent
+        FROM Customer
+        JOIN Invoice
+            ON Invoice.CustomerId = Customer.CustomerId
+        GROUP BY Customer.CustomerId, Customer.FirstName, Customer.LastName, Invoice.BillingCountry
+    ) SubTbl
+    WHERE SubTbl.BillingCountry = Tbl.BillingCountry
+)
+ORDER BY Tbl.BillingCountry, Tbl.Amount_Spent DESC;
+
+```
 
 #### Problem Statement 2: Understand Music Preferences and Customer Behavior
 **Tailored Questions:**
