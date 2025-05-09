@@ -43,13 +43,57 @@ In this project i will be quering the Chinook Databae which is a SQLlite Databas
 
 As a Business Intelligence Analyst in this project my role is to perform thorough analysis to assist the chinook team with understanding the media in their store, their customers, employees, and their invoice information. This has been achieved through the use of my Analytical skills, hoping to derive comprehensive insights that will guide both the operational and overall improvement, helping Chinook Store to continue to maintain customer retention through adequate and appropriate customer service satisfaction.
 
-# Problem Statement
+# Problem Statement 
+The Chinook Music Store lacked visibility into customer purchasing behaviour, genre and media format preferences, and artist profitability across regions. Addiontionally, there was no structured, analyst-friendly SQL environment to support efficient querying, data extraction, and export for deeper analysis and data visualisation.
+
+Key business problem includes:
+- Difficulty identifying top-performing customers and their geographic distribution
+- Limited insight into popular genres, media types, and artist revenue performance
+- Lack of a centralised and user-friendly SQL workspace for analyst
+- No defined process for exporting query outputs and transforming them into business insights
+- Inefficient communication of findings to stakeholders in visual and actionable format
+
+This prohject addressess these challenges by:
+- Establishing a local SQLite environment using **DB Browser for SQLite**  to execute and export SQL queries
+- Writing tailored SQL scripts to answer key business questions
+- Exporting cleaned query results to CSV format for structured analysis
+- Building a Power Point presentation to communicate insights clearly and persuasively to stakeholders
+
 # Stakeholder Engagement
+
 ## Target Stakeholder
+- Business Excecutives (Store Mangement, Sales Directors)
+- Marketing and Campaign Teams
+- Event Manager
+- Data Analyts and Reporting Teams
+
 ## Use Cases
+- Identify high-value customers and their geographic distribution for targeted promotions
+- Anlyse most popular music genres and media types by country to guide stock and campaignes
+- Determine top-earning atrists, genres, and albums to inform performance contracts and event planning
+- Set up e resusable SQL environment for analyst to run ad-hoc queries and exract business intelligence
+- Present inisghts in stakeholder-friendly formats (charts, KPIs, summaries) through PowerPoint slides.
+
 ## Stakeholder Stories
+- "As a Store Manager, I need to iidentify our most loyal and high-spending customers to increase retention."
+- "As the Marketing Manager, I want to track genre popularity by region to better localise campaings."
+- "As the Event/Concert Manager, I need insights on which artists brings in the most revenue so we can plan concert bookings."
+- "As a Data Analyst, I want a consistent local SQL environment to run qureis and export for rewgular reporting."
+
 ## Acceptance Citeria
+- A local SQL envirnemnt is properly configured (e.g., DB Browser for SQLite) for ease of use and export
+- Query results are accurately exported to CSV files with proper formatting and labelling
+- Key insights includes customer, genre, media type, and artist performance metrics
+- PowerPoint visuals include charts, KPIs, maps (If applicable), and data-driven recommendations
+- Business Questions are clealy answered and aligned with stakeholder goals
+
 ## Success Citeria
+- Executive are equiped with actionable insights to drive strategic decisions
+- Marketing teams run more affective, data-backed campaigns tailored by region and genre
+- Artist relations benefit from insights that optimise booking decisions and partnership strategies
+- Analyst gain resuable and efficient SQL analysis workflow for ongoing reporting
+- Insights are clearly comunicated through profesional presentations, improving data adoption across the organisation.
+
 # Data Source
 ## Data Structure
 ## SQLite Database Benefit
