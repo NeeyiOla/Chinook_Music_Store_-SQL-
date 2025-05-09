@@ -36,7 +36,7 @@
 Querying Chinook Digital Music Store Database for Tailored Analysis  
 
 # My Role
-Business Intelligence Analyst 
+**Business Intelligence Analyst** 
 
 # Project Overview
 In this project i will be quering the Chinook Databae which is a SQLlite Database that holds information or data about a music store. For this project, i will be leveraging data-driven tactics to assist the Chinook team to handle complexity  and business challenges or hidden potential business opportunity. In order to achieve this, Chinook Music Store have recently consulted me as a Business Intellligence Analyst to help make sense of their data to see how I can use my skills to reveal important insights buried within.  
@@ -44,57 +44,12 @@ In this project i will be quering the Chinook Databae which is a SQLlite Databas
 As a Business Intelligence Analyst in this project my role is to perform thorough analysis to assist the chinook team with understanding the media in their store, their customers, employees, and their invoice information. This has been achieved through the use of my Analytical skills, hoping to derive comprehensive insights that will guide both the operational and overall improvement, helping Chinook Store to continue to maintain customer retention through adequate and appropriate customer service satisfaction.
 
 # Problem Statement
-The Chinook Music Store lacked visibility into customer purchasing behavior, genre and media format preferences, and artist profitability across regions. Additionally, there was no structured, analyst-friendly SQL environment to support efficient querying, data extraction, and export for deeper analysis.
-Key business problems included:  
-- Difficulty identifying top-performing customers and their geographic distribution
-- Limited insight into popular genres, media types, and artist revenue performance
-- Lack of a centralized and user-friendly SQL workspace for analysts
-- No defined process for exporting query outputs and transforming them into business insights
-- Inefficient communication of findings to stakeholders in a visual and actionable format  
-
-This project addresses these challenges by:  
-
-- Establishing a local SQLite environment using DB Browser for SQLite to execute and export SQL queries
-- Writing tailored SQL scripts to answer key business questions
-- Exporting cleaned query results to CSV format for structured analysis
-- Building a PowerPoint presentation to communicate insights clearly and persuasively to stakeholders
-
 # Stakeholder Engagement
-
 ## Target Stakeholder
-- Business Excutives (Store Management, Sales Directors)
-- Marketing and Campaign Teams
-- Event Managers
-- Data Analyst and Reporting Teams
-
 ## Use Cases
-- Identify high-value customers and their geographic distributionfor targetd promotions
-- Analyse most popular music genres and media types media types by country to guide stock campaign planning.
-- Determine top-earning artist, genre and and album to inform Music event performance contract and event planning.
-- Set up a reusable SQL environment for analysts to run ad-hoc queries and extract business intelligence
-- Present Insights in Stakeholder-friendly formats (charts, KPIs, summaries) through PowerPont sildes  
-
 ## Stakeholder Stories
-- "As a Store Manger, I needto identify our most loyal and high-spending customers to increase rentention."
-
-- "As the Marketing and Campaign Teams, We want to track genre popularity by regionto better localise campaigns
-- "As the Events Manage, I need insights on which artists bring in the most revenue so we can plan music concert event and bookings."
-- "As the Business Data Analyst, The needs to establish consistent local SQL environment to run future queries and export data for regular reporting.2
-
 ## Acceptance Citeria
-- A local SQL environment is properly configureed (e.g., DB Browser for SQLite) for ease of use and expoert
-- Query result are accurately exported to CSV files with proper fromatting and labelling
-- Key insights include customer, genre, media type, and artist performance metrics
-- PowerPoint Visuals include charts, KPIs, maps (if applicable), and data-driven recommendations
-- Business questions are clearly answered and aligned with stakeholder goals
-
 ## Success Citeria
-- Executive are equiped with actionable insights to drive strategic decisons
-- Marketing teams run more effective, data-backed campaings tailored by regon and genre
-- Artist relations benefit from insights that optimise booking decisions and partnership strategies.
-- Analyst gain a resuable and efficient SQL analysis workflow for ingoing repoerting
-- Insignts are clearly communicated through professional presentations, improving data adoption across the organisation.
-
 # Data Source
 ## Data Structure
 ## SQLite Database Benefit
@@ -105,8 +60,46 @@ This project addresses these challenges by:
 ### EDA Diagram
 ### Exploratory Data Analysis (EDA)
 ### Data Export ti Spreadsheet (CSV)
-### Analysis
-### Visualisation
+
+
+### Extacted Queries Analysis 
+
+#### Problem Statement 1: Identify and Understand High-Value Customers
+**Tailored Questions:**  
+```sql
+/*
+1. Which countries have the most invoices?
+*/
+
+SELECT BillingCountry,
+		COUNT(*) AS Invoice_Per_Country
+FROM Invoice
+GROUP BY BillingCountry
+ORDER BY 2 DESC;
+```
+
+1. Which city has the best customers?
+2. Who is the best customer?
+3. Which customer spent the most on the top-earning artist?
+4. Customer who spent the most in each country, and their spending amount.
+
+#### Problem Statement 2: Understand Music Preferences and Customer Behavior
+**Tailored Questions:**
+4. Return email, name, and genre for all Rock Music listeners.
+5. Who is writing the most Rock music? (Top 10 Rock bands to invite for a concert.)
+8. Most popular music genre by country.
+12. Frequency breakdown of each genre sold by media type.
+
+#### Problem Statement 3: Optimize Product Offering Based on Media Type and Album Popularity
+**Tailored Question:**
+10. Top 10 Country Total_Spent by MediaType and Spending Categories.
+11. Which is the most popular media type?
+13. Top 3 Most Sold Albums by year and customer count.
+
+#### Problem Statement 4: Evaluate Product Catalog Based on Track Performance
+**Tailored Question:**
+7. Return all track names that are longer than the average song length.
+
 # Detailed Insights and Recomendation
 ## Chinook Team(Staff) Insights
 ## Executive Overview Insights 
