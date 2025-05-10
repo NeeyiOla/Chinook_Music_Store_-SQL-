@@ -110,14 +110,14 @@ This prohject addressess these challenges by:
   	- PowerPoint (for visualisation and storytelling
 
 - **Data Structure**
-To assist to execute the queries ahead, the schema for the Chinook Database is provide below.
-
+To assist to execute the queries ahead, the schema for the Chinook Database is provide below.  
+  
 Artist Table  
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | Artisid |  | Unique Identifier of each artist |
 | Name |  | Name of the Artist |  
-
+  
 Album  
 | Column Name | Data Type | Description |
 | --- | --- | --- |
