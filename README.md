@@ -112,18 +112,20 @@ This prohject addressess these challenges by:
 - **Data Structure**
 To assist to execute the queries ahead, the schema for the Chinook Database is provide below.  
   
-Artist Table  
+Artist Table
+
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | Artisid | Empty | Unique Identifier of each artist |
-| Name | Empty | Name of the Artist |  
-  
-Album  
+| Name | Empty | Name of the Artist |
+ 
+Album
+
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | AlbumId | Empty | Unique identifier for each Album |
 | Title | Empty | Title of the Album |
-| ArtistId | Empty | Foriegn key referencing the Artist table (ArtistId) |  
+| ArtistId | Empty | Foriegn key referencing the Artist table (ArtistId) |
 
 Relationship:  
 ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the Artist table.
