@@ -275,7 +275,7 @@ FROM Invoice
 GROUP BY BillingCountry
 ORDER BY 2 DESC;
 ```
-
+![Problem statement 1 of 1](Assets/Images/which_Ctry_Av_d_Most_Invoice.png)
  	### insert output data
 
 ```sql
@@ -290,7 +290,7 @@ GROUP BY BillingCity
 ORDER BY Total_Sales DESC
 LIMIT 1;
 ```
-
+![Problem statement 1 of 2](Assets/Images/City_with_best_customer.png)
 	### insert output data
 
 ```sql
@@ -308,21 +308,8 @@ JOIN Customer
 ON Invoice.CustomerId = Customer.CustomerId
 GROUP BY Customer.FirstName
 ORDER BY 4 DESC;
-
-SELECT 
-    Customer.CustomerId,
-    Customer.FirstName,
-    Customer.LastName,
-    InvoiceLine.InvoiceLineId,
-    SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS Sales
-FROM Customer
-JOIN Invoice ON Invoice.CustomerId = Customer.CustomerId
-JOIN InvoiceLine ON InvoiceLine.InvoiceId = Invoice.InvoiceId
-GROUP BY 1
-ORDER BY Sales DESC;
-
 ```
-
+![Problem statement 1 of 3](Assets/Images/Customer_spent_most_on_music_by_country.png)
 	### insert output data
 
 ```sql
@@ -380,7 +367,7 @@ FROM (
 ) Tbl
 ORDER BY Tbl.Total DESC;
 ```
-
+![Problem statement 1 of 4.1](Assets/Images/Arttist_most_earned.png)    ![Problem statement 1 of 4.2](Assets/Images/Cust_Contributed_to_Artist_Most_Earned.png) 
 	### insert output data
 
 ```sql
@@ -425,7 +412,7 @@ WHERE Tbl.Amount_Spent = (
 ORDER BY Tbl.BillingCountry, Tbl.Amount_Spent DESC;
 
 ```
-
+![Problem statement 1 of 4.2](Assets/Images/Customer_spent_most_on_music_by_country.png) 
 ### insert output data
 
 
