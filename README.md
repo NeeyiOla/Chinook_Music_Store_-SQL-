@@ -276,7 +276,7 @@ GROUP BY BillingCountry
 ORDER BY 2 DESC;
 ```
 ![Problem statement 1 of 1](Assets/Images/which_Ctry_Av_d_Most_Invoice.png)
- 	### insert output data
+
 
 ```sql
 /*
@@ -291,7 +291,7 @@ ORDER BY Total_Sales DESC
 LIMIT 1;
 ```
 ![Problem statement 1 of 2](Assets/Images/City_with_best_customer.png)
-	### insert output data
+
 
 ```sql
 -- Who is the best customer?
@@ -310,7 +310,7 @@ GROUP BY Customer.FirstName
 ORDER BY 4 DESC;
 ```
 ![Problem statement 1 of 3](Assets/Images/Customer_spent_most_on_music_by_country.png)
-	### insert output data
+
 
 ```sql
 /*
@@ -368,7 +368,7 @@ FROM (
 ORDER BY Tbl.Total DESC;
 ```
 ![Problem statement 1 of 4.1](Assets/Images/Arttist_most_earned.png)    ![Problem statement 1 of 4.2](Assets/Images/Cust_Contributed_to_Artist_Most_Earned.png) 
-	### insert output data
+
 
 ```sql
 /*
@@ -412,8 +412,7 @@ WHERE Tbl.Amount_Spent = (
 ORDER BY Tbl.BillingCountry, Tbl.Amount_Spent DESC;
 
 ```
-![Problem statement 1 of 4.2](Assets/Images/Customer_spent_most_on_music_by_country.png) 
-### insert output data
+![Problem statement 1 of 5](Assets/Images/Customer_spent_most_on_music_by_country.png) 
 
 
 #### Problem Statement 2: Understand Music Preferences and Customer Behavior
@@ -441,7 +440,8 @@ ON Genre.GenreId = Track.GenreId
 WHERE Genre.GenreId = '1'
 ORDER BY Customer.Email;
 ```
-	### insert data output
+![Problem statement 2 of 1](Assets/Images/info_of_rock_music_listener_2.png) 
+
 
 ```sql
 /*
@@ -464,7 +464,7 @@ GROUP BY Artist.ArtistId
 ORDER BY 3 DESC
 LIMIT 10;
 ```
-	#### insert output data
+![Problem statement 2 of 2](Assets/Images/who_writing_rock_music_2.png) 
 
 ```sql
 /*
@@ -512,7 +512,8 @@ WHERE Tbl.Max_Sales = (
 )
 ORDER BY Tbl.Country, Tbl.GenreName;
 ```
-	#### insert output data
+![Problem statement 2 of 3](Assets/Images/popular_genre_for_each_country_2.png) 
+
 
 ```sql
 /*
@@ -535,8 +536,8 @@ ON Invoice.InvoiceId = InvoiceLine.InvoiceId
 GROUP BY 1, 4
 ORDER BY 3 DESC;
 ```
+![Problem statement 2 of 4](Assets/Images/MediaType_sales_by_genre_2.png) 
 
-	#### insert data output
 
 #### Problem Statement 3: Optimize Product Offering Based on Media Type and Album Popularity
 **Tailored Question:**
@@ -569,8 +570,7 @@ GROUP BY MediaType.MediaTypeId, MediaType.Name, Invoice.BillingCountry
 ORDER BY Total_Spent DESC
 LIMIT 10;
 ```
-
-	### insert output data
+![Problem statement 3 of 1](Assets/Images/Top10__Country_TotalSpent_by_MediaType_3.png) 
 
 ```sql
 /*
@@ -587,14 +587,14 @@ GROUP BY MediaType.MediaTypeId
 ORDER BY 3 DESC;
 
 ```
-
-	### insert output data
+![Problem statement 3 of 2](Assets/Images/Most_Popular_Media_Type_3.png) 
 
 ```sql
 /*
 -- Top 3 Most Sold Albums by year and customer count that contributed invoice total fro each year
 -- with Max Date = 2013-12-22 and Min Date = 2009-01-01
 */
+
 WITH AlbumSales AS (
     SELECT  
         Album.AlbumId,
@@ -632,8 +632,8 @@ WHERE SalesRank <= 3
 ORDER BY Year, TotalSales DESC;
 
 ```
+![Problem statement 3 of 3](Assets/Images/Most_Sold_3_Album_in_each_yr_3.png) 
 
-	### insert output data
 
 #### Problem Statement 4: Evaluate Product Catalog Based on Track Performance
 **Tailored Question:**
@@ -650,7 +650,7 @@ FROM Track
 WHERE Milliseconds > (SELECT AVG(Milliseconds) FROM Track)
 ORDER BY Milliseconds DESC;
 ```
-	#### insert output data
+![Problem statement 3 of 3](Assets/Images/All_track_with_length_longer_than_Avg_4.png) 
 
 
 # Detailed Insights and Recomendation
