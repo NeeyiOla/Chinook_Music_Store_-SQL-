@@ -259,17 +259,17 @@ Relationship:
 - Exported Data Result
 
 ### Setting up my local Environment
-The  enviroment i will be using is pretty quick to set up by following the setup below 
-- Download the DB Broweser for SQLite
-- Connect the Broswer to the Database
+The  enviroment that is being use in this project is pretty quick to set up by following the setup below 
+- Downloaded the DB Broweser for SQLite
+- Connected the Broswer to the Database provided by Chinook Music Store
 - Click on Open Database
 - Navigate to the Chinook.db file (probably in download or folder that the Chinook.db is saved)
 - Click on Execute SQL
 - Start querying my data
 
 
-### EDA Diagram
-
+### Database Model Diagram
+![Chinook Database Diagram](Assets/Images/Database_Diagram.png)
 
 ### Exploratory Data Analysis (EDA)
 
@@ -668,8 +668,10 @@ ORDER BY Milliseconds DESC;
 ### Export Data from DB Browser into Spreadsheet
 To create the visualisation that promote detailed insights and recommendation, i will be moving queried data out of the SQL and into Excel which the data exported would be use to create visualise chat, to export the result of my queries from DB Browser, using the **Export to CSV**  button below and to the right of the result window as shown in the image below.
 
+![Export Data from DB Browser into Spreadsheet](Assets/Images/Export_data_to_CSV_1.png) 
 
 Select Export to CSV, and then selct the settings that match the ones below. Make sure your setting on Newline character is set to Unix: LF(/n). Then i will be able to use the downloaded queries data in a spreadsheet application.
+![Export Data from DB Browser into Spreadsheet](Assets/Images/Export_data_to_CSV.png) 
 
 # Detailed Insights and Recomendation
 ## Chinook Team(Staff) Insights
