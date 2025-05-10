@@ -229,6 +229,10 @@ Relationship:
 | UnitPrice | --- | Price per unit of the track |
 | Quantity | --- | Quantity of tracks purchased in the invoice line |
 
+Relationship:  
+- InvoiceId in the InvoiceLine table is a foreign key linked to the InvoiceId (primary key) in the Invoice table.
+- TrackId in the InvoiceLine table is a foreign key linked to the TrackId (primary key) in the Track table.
+
 **Invoice Table**
 
 | Column Name | Data Type | Description |
@@ -243,9 +247,7 @@ Relationship:
 | BillingPostalcode | --- | Billing postal code of the invoice |
 | Total | --- | Total amount of the invoice |
 
-Relationship:  
-- InvoiceId in the InvoiceLine table is a foreign key linked to the InvoiceId (primary key) in the Invoice table.
-- TrackId in the InvoiceLine table is a foreign key linked to the TrackId (primary key) in the Track table.
+
 
 
 # Methodology
