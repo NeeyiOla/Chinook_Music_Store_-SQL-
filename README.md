@@ -33,13 +33,19 @@
   - [Marketing_&_Planning_Committee_Insight](#Product-portfolio-performance-(Based-on-Gross-Proft))
 
 # Project Title 
-Querying Chinook Digital Music Store Database for Tailored Analysis  
+SQL Analysis of Chinook Music Store: Customer Behavior, Sales Performance & Revenue Insights
 
 # My Role
-**Business Intelligence Analyst** 
+**Business Intelligence Analyst**  
+
+- Responsibility
+	- Wrote and optimised complex SQL quries
+ 	- Explored and model relational data from the chinook database
+  	- Translated business questions into strategic recommendations
+  	- Visualised result in PowerPoint for storytelling
 
 # Project Overview
-In this project i will be quering the Chinook Databae which is a SQLlite Database that holds information or data about a music store. For this project, i will be leveraging data-driven tactics to assist the Chinook team to handle complexity  and business challenges or hidden potential business opportunity. In order to achieve this, Chinook Music Store have recently consulted me as a Business Intellligence Analyst to help make sense of their data to see how I can use my skills to reveal important insights buried within.  
+In this project i will be quering the Chinook Database which is a SQLlite Database that holds information or data about a music store. For this project, i will be leveraging data-driven tactics to assist the Chinook team to handle complexity  and business challenges or hidden potential business opportunity. In order to achieve this, Chinook Music Store have recently consulted me as a Business Intellligence Analyst to help make sense of their data to see how I can use my skills to reveal important insights buried within.  
 
 As a Business Intelligence Analyst in this project my role is to perform thorough analysis to assist the chinook team with understanding the media in their store, their customers, employees, and their invoice information. This has been achieved through the use of my Analytical skills, hoping to derive comprehensive insights that will guide both the operational and overall improvement, helping Chinook Store to continue to maintain customer retention through adequate and appropriate customer service satisfaction.
 
@@ -94,17 +100,44 @@ This prohject addressess these challenges by:
 - Analyst gain resuable and efficient SQL analysis workflow for ongoing reporting
 - Insights are clearly comunicated through profesional presentations, improving data adoption across the organisation.
 
-# Data Source
-## Data Structure
-## SQLite Database Benefit
+# Data Source & Tools
+- **Database:** Chinook (SQLite format)
+- **Main Tables:** Customers, Invoices, InvoiceLines, Tracks, Albums, Artists, Employees, Genres, Media Types, and Track.
+
+- **Tools Used:**
+  	- SQLite + DB Browser
+  	- Excel (for result export and pivot analysis)
+  	- PowerPoint (for visualisation and storytelling
+
+- **Data Structure**
+To assist to execute the queries ahead, the schema for the Chinook Database is provide below.
+
+Artist Table  
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| Artisid |  | Unique Identifier of each artist |
+| Name |  | Name of the Artist |  
+
+Album  
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| AlbumId |  | Unique identifier for each Album |
+| Title |  | Title of the Album |
+| ArtistId |  | Foriegn key referencing the Artist table (ArtistId) |  
+
+Relationship:  
+ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the Artist table.
+
+
+
+
+
 # Methodology
-## Tool Used
 ## Development
 ### Setting up my local Environment
 ### EDA Diagram
 ### Exploratory Data Analysis (EDA)
-### Data Export ti Spreadsheet (CSV)
-
+### Data Export t0 Spreadsheet (CSV)
 
 ### Extacted Queries Analysis 
 
@@ -362,6 +395,8 @@ ORDER BY Year, TotalSales DESC;
 
 #### Problem Statement 4: Evaluate Product Catalog Based on Track Performance
 **Tailored Question:**
+
+```sql
 7. Return all track names that are longer than the average song length.
 
 # Detailed Insights and Recomendation
