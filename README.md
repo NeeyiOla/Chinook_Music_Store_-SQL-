@@ -112,14 +112,14 @@ This prohject addressess these challenges by:
 - **Data Structure**
 To assist to execute the queries ahead, the schema for the Chinook Database is provide below.  
   
-Artist Table
+**Artist Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | Artisid | Empty | Unique Identifier of each artist |
 | Name | Empty | Name of the Artist |
  
-Album
+**Album Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ Album
 Relationship:  
 ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the Artist table.
 
-**Track**
+**Track Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -144,16 +144,108 @@ ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the A
 | Bytes | --- | Size of the track in bytes |
 | Unit Price | --- | Price of the track |
 
-Relationships:
-• AlbumId in the Track table is a foreign key linked to the AlbumId (primary key) in the Album table.
-• MediaTypeId in the Track table is a foreign key linked to the MediaTypeId (primary key) in the MediaType table.
-• GenreId in the Track table is a foreign key linked to the GenreId (primary key) in the Genre table.
+Relationships:  
+- AlbumId in the Track table is a foreign key linked to the AlbumId (primary key) in the Album table.
+- MediaTypeId in the Track table is a foreign key linked to the MediaTypeId (primary key) in the MediaType table.
+- GenreId in the Track table is a foreign key linked to the GenreId (primary key) in the Genre table.
 
+**MediaType Table**
 
+| Column Name | Data Type | Description |
 | --- | --- | --- |
+| Media Type | --- | Unique identifier for each media type |
+| Name | --- | Name of the media type |
+
+**PlayList Table**
+
+| Column Name | Data Type | Description |
 | --- | --- | --- |
+| PlaylistId | --- | Unique identifier for each playlist |
+| Name | --- | Name of Playlist |
+
+**Playlist Track Table**
+
+| Column Name | Data Type | Description |
 | --- | --- | --- |
+| PlaylistTrackId | --- | Foreign key referencing the playlist table (PlaylistId) |
+| Track | --- | Name of the playlist track |
+
+Relationship:  
+- PlaylistId in the PlaylistTrack table is a foreign key linked to the PlaylistId (primary key) in the Playlist table.
+- TrackId in the PlaylistTrack table is a foreign key linked to the TrackId (primary key) in the Track table.
+
+**Genre Table**
+
+| Column Name | Data Type | Description |
 | --- | --- | --- |
+| GenreId | --- | Unique identifier for each genre |
+| Name | --- | Name of the genre |
+
+**Empployee Table**
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| EmployeeId | --- | Unique identifier  for each employee |
+| LastName | --- | Last name of the employee |
+| FirstName | --- | First name of the employee |
+| Title | --- | Title of the employee |
+| ReportTo | --- | EmployeeId of the employee’s supervisor |
+| BirtDate | --- | Birth date of the employee |
+| HireDate | --- | Hire date of the employee |
+| Address | --- | Address of the employee |
+| City | --- | City of the employee |
+| State | --- | State of the employee |
+| Country | --- | Country of the employee |
+| PostalCode | --- | Postal Code of the employee |
+| Phone | --- | Phone of the employee |
+| Fax | --- | Fax number of the employee |
+| Email | --- | Email address of the employee |
+
+**Customer Table**
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| CustomerId | --- | Unique identifier for each customer |
+| FirstName | --- | First name of the customer |
+| LastName | --- | Last name of the customer |
+| Company | --- | Company name of the customer |
+| Address | --- | Address of the customer |
+| City | --- | City of the customer |
+| State | --- | State of the customer |
+| Country | --- | Country of the customer |
+| PostalCode | --- | Postal code of the customer |
+| Phone | --- | Phone number of the customer |
+| Fax | --- | Fax number of the customer |
+| Email | --- | Email address of the customer |
+| SupportRepId | --- | EmployeeId of the customer’s support representative. |
+
+**InvoiceLine Table**
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| InvoiceLineId | --- | Unique identifier for each invoice line |
+| InvoiceId | --- | Foreign key referencing the invoice table (InvoiceId) |
+| TrackId | --- | Foreign key referencing the Track table (TrackId) |
+| UnitPrice | --- | Price per unit of the track |
+| Quantity | --- | Quantity of tracks purchased in the invoice line |
+
+**Invoice Table**
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| InvoiceId | --- | Unique identifier for each invoice |
+| CustomerId | --- | Foreign key referencing the customer (CustomerId) |
+| InvoiceDate | --- | Date of the invoice |
+| BillingAddress | --- | Billing address of the invoice |
+| BillingCity | --- | Billing city of the invoice |
+| BillingState | --- | Billing state of the invoice |
+| BillingCountry | --- | Billing country of the invoice |
+| BillingPostalcode | --- | Billing postal code of the invoice |
+| Total | --- | Total amount of the invoice |
+
+Relationship:  
+- InvoiceId in the InvoiceLine table is a foreign key linked to the InvoiceId (primary key) in the Invoice table.
+- TrackId in the InvoiceLine table is a foreign key linked to the TrackId (primary key) in the Track table.
 
 
 # Methodology
