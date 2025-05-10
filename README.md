@@ -255,13 +255,26 @@ Relationship:
 - Set up the local environment
 - Database diagram
 - Exploratory data Analysis
-- Extracted Queries Analysis and Exported Data Result
-- Data export to spreadsheet
-### Setting up my local Environment
-### EDA Diagram
-### Exploratory Data Analysis (EDA)
-### Extacted Queries Analysis & Exported Data Result (CSV)
+- Extracted Queries Analysis
+- Exported Data Result
 
+### Setting up my local Environment
+The  enviroment i will be using is pretty quick to set up by following the setup below 
+- Download the DB Broweser for SQLite
+- Connect the Broswer to the Database
+- Click on Open Database
+- Navigate to the Chinook.db file (probably in download or folder that the Chinook.db is saved)
+- Click on Execute SQL
+- Start querying my data
+
+
+### EDA Diagram
+
+
+### Exploratory Data Analysis (EDA)
+
+
+### Extacted Queries Analysis
 #### Problem Statement 1: Identify and Understand High-Value Customers
 **Tailored Questions:**  
 ```sql
@@ -652,6 +665,11 @@ ORDER BY Milliseconds DESC;
 ```
 ![Problem statement 3 of 3](Assets/Images/All_track_with_length_longer_than_Avg_4.png) 
 
+### Export Data from DB Browser into Spreadsheet
+To create the visualisation that promote detailed insights and recommendation, i will be moving queried data out of the SQL and into Excel which the data exported would be use to create visualise chat, to export the result of my queries from DB Browser, using the **Export to CSV**  button below and to the right of the result window as shown in the image below.
+
+
+Select Export to CSV, and then selct the settings that match the ones below. Make sure your setting on Newline character is set to Unix: LF(/n). Then i will be able to use the downloaded queries data in a spreadsheet application.
 
 # Detailed Insights and Recomendation
 ## Chinook Team(Staff) Insights
