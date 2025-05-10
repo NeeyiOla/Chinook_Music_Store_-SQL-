@@ -112,14 +112,14 @@ This prohject addressess these challenges by:
 - **Data Structure**
 To assist to execute the queries ahead, the schema for the Chinook Database is provide below.  
   
-**Artist Table**
+**Artist Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | Artisid | Empty | Unique Identifier of each artist |
 | Name | Empty | Name of the Artist |
  
-**Album Table**
+**Album Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ To assist to execute the queries ahead, the schema for the Chinook Database is p
 Relationship:  
 ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the Artist table.
 
-**Track Table**
+**Track Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -149,21 +149,21 @@ Relationships:
 - MediaTypeId in the Track table is a foreign key linked to the MediaTypeId (primary key) in the MediaType table.
 - GenreId in the Track table is a foreign key linked to the GenreId (primary key) in the Genre table.
 
-**MediaType Table**
+**MediaType Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | Media Type | --- | Unique identifier for each media type |
 | Name | --- | Name of the media type |
 
-**PlayList Table**
+**PlayList Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | PlaylistId | --- | Unique identifier for each playlist |
 | Name | --- | Name of Playlist |
 
-**Playlist Track Table**
+**Playlist Track Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -174,14 +174,14 @@ Relationship:
 - PlaylistId in the PlaylistTrack table is a foreign key linked to the PlaylistId (primary key) in the Playlist table.
 - TrackId in the PlaylistTrack table is a foreign key linked to the TrackId (primary key) in the Track table.
 
-**Genre Table**
+**Genre Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | GenreId | --- | Unique identifier for each genre |
 | Name | --- | Name of the genre |
 
-**Empployee Table**
+**Empployee Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -201,7 +201,7 @@ Relationship:
 | Fax | --- | Fax number of the employee |
 | Email | --- | Email address of the employee |
 
-**Customer Table**
+**Customer Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -219,7 +219,7 @@ Relationship:
 | Email | --- | Email address of the customer |
 | SupportRepId | --- | EmployeeId of the customer’s support representative. |
 
-**InvoiceLine Table**
+**InvoiceLine Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -233,7 +233,7 @@ Relationship:
 - InvoiceId in the InvoiceLine table is a foreign key linked to the InvoiceId (primary key) in the Invoice table.
 - TrackId in the InvoiceLine table is a foreign key linked to the TrackId (primary key) in the Track table.
 
-**Invoice Table**
+**Invoice Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -252,12 +252,15 @@ Relationship:
 
 # Methodology
 ## Development
+- Set up the local environment
+- Database diagram
+- Exploratory data Analysis
+- Extracted Queries Analysis and Exported Data Result
+- Data export to spreadsheet
 ### Setting up my local Environment
 ### EDA Diagram
 ### Exploratory Data Analysis (EDA)
-### Data Export t0 Spreadsheet (CSV)
-
-### Extacted Queries Analysis 
+### Extacted Queries Analysis & Exported Data Result (CSV)
 
 #### Problem Statement 1: Identify and Understand High-Value Customers
 **Tailored Questions:**  
@@ -273,6 +276,8 @@ GROUP BY BillingCountry
 ORDER BY 2 DESC;
 ```
 
+ 	### insert output data
+
 ```sql
 /*
 1. Which city has the best customers?
@@ -285,6 +290,8 @@ GROUP BY BillingCity
 ORDER BY Total_Sales DESC
 LIMIT 1;
 ```
+
+	### insert output data
 
 ```sql
 -- Who is the best customer?
@@ -315,9 +322,13 @@ GROUP BY 1
 ORDER BY Sales DESC;
 
 ```
+
+	### insert output data
+
 ```sql
 /*
--- frist, I find which artist has the mostaccording to the InvoiceLines and then find Which customer spent the most on the top-earning artist?
+-- frist, I find which artist has the mostaccording to the InvoiceLines.
+-- then find Which customer spent the most on the top-earning artist?
 */
 
 SELECT * FROM Invoice;
@@ -370,6 +381,8 @@ FROM (
 ORDER BY Tbl.Total DESC;
 ```
 
+	### insert output data
+
 ```sql
 /*
 -- Customer who spent the most in each country, and their spending amount.
@@ -413,12 +426,130 @@ ORDER BY Tbl.BillingCountry, Tbl.Amount_Spent DESC;
 
 ```
 
+### insert output data
+
+
 #### Problem Statement 2: Understand Music Preferences and Customer Behavior
 **Tailored Questions:**
-4. Return email, name, and genre for all Rock Music listeners.
-5. Who is writing the most Rock music? (Top 10 Rock bands to invite for a concert.)
-8. Most popular music genre by country.
-12. Frequency breakdown of each genre sold by media type.
+
+```sql
+/*
+-- Return email, name, and genre for all Rock Music listeners.
+*/ 
+
+SELECT DISTINCT
+    Customer.FirstName,
+    Customer.LastName,
+    Customer.Email,
+    Genre.Name
+FROM Customer
+JOIN Invoice
+ON Customer.CustomerId = Invoice.CustomerId
+JOIN InvoiceLine
+ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+JOIN Track
+ON Track.TrackId = InvoiceLine.TrackId
+JOIN Genre
+ON Genre.GenreId = Track.GenreId
+WHERE Genre.GenreId = '1'
+ORDER BY Customer.Email;
+```
+	### insert data output
+
+```sql
+/*
+  -- Who is writing the rock music?
+  -- Write a query that returns the Artist name and total track count of the top 10 rock bands.
+*/
+
+SELECT  Artist.ArtistId,
+		Artist.Name,
+		COUNT(*) AS Genre_Count
+FROM Track
+JOIN Genre 
+ON Genre.GenreId = Track.GenreId
+JOIN Album
+ON Album.AlbumId = Track.AlbumId
+JOIN Artist
+ON Artist.ArtistId = Album.ArtistId
+WHERE Genre.GenreId = 1
+GROUP BY Artist.ArtistId
+ORDER BY 3 DESC
+LIMIT 10;
+```
+	#### insert output data
+
+```sql
+/*
+-- Most popular music genre by country.
+*/
+SELECT 
+    Tbl.Country,
+    Tbl.GenreName,
+    Tbl.Max_Sales
+FROM (
+    SELECT  
+        Customer.Country AS Country,
+        Genre.Name AS GenreName,
+        COUNT(InvoiceLine.InvoiceLineId) AS Max_Sales
+    FROM Genre
+    JOIN Track
+        ON Track.GenreId = Genre.GenreId
+    JOIN InvoiceLine
+        ON InvoiceLine.TrackId = Track.TrackId
+    JOIN Invoice
+        ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+    JOIN Customer
+        ON Customer.CustomerId = Invoice.CustomerId
+    GROUP BY Customer.Country, Genre.Name
+) Tbl
+WHERE Tbl.Max_Sales = (
+    SELECT MAX(SubTbl.Max_Sales)
+    FROM (
+        SELECT  
+            Customer.Country AS Country,
+            Genre.Name AS GenreName,
+            COUNT(InvoiceLine.InvoiceLineId) AS Max_Sales
+        FROM Genre
+        JOIN Track
+            ON Track.GenreId = Genre.GenreId
+        JOIN InvoiceLine
+            ON InvoiceLine.TrackId = Track.TrackId
+        JOIN Invoice
+            ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+        JOIN Customer
+            ON Customer.CustomerId = Invoice.CustomerId
+        GROUP BY Customer.Country, Genre.Name
+    ) SubTbl
+    WHERE SubTbl.Country = Tbl.Country
+)
+ORDER BY Tbl.Country, Tbl.GenreName;
+```
+	#### insert output data
+
+```sql
+/*
+-- Frequency breakdown of each genre sold by media type.
+*/
+
+SELECT  MediaType.MediaTypeId,
+		MediaType.Name,
+		COUNT(*) AS MediaType_Breakdown,
+		Genre.GenreId
+FROM MediaType
+JOIN Track
+ON Track.MediaTypeId = MediaType.MediaTypeId
+JOIN Genre
+On Genre.GenreId = Track.GenreId
+JOIN InvoiceLine
+ON InvoiceLine.TrackId = Track.TrackId
+JOIN Invoice
+ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+GROUP BY 1, 4
+ORDER BY 3 DESC;
+```
+
+	#### insert data output
 
 #### Problem Statement 3: Optimize Product Offering Based on Media Type and Album Popularity
 **Tailored Question:**
@@ -452,6 +583,8 @@ ORDER BY Total_Spent DESC
 LIMIT 10;
 ```
 
+	### insert output data
+
 ```sql
 /*
 11. Which is the most popular media type?
@@ -467,6 +600,8 @@ GROUP BY MediaType.MediaTypeId
 ORDER BY 3 DESC;
 
 ```
+
+	### insert output data
 
 ```sql
 /*
@@ -511,11 +646,25 @@ ORDER BY Year, TotalSales DESC;
 
 ```
 
+	### insert output data
+
 #### Problem Statement 4: Evaluate Product Catalog Based on Track Performance
 **Tailored Question:**
 
 ```sql
-7. Return all track names that are longer than the average song length.
+/*
+-- Return all track names that are longer than the average song length.
+*/
+
+SELECT 
+    Name,
+    Milliseconds
+FROM Track
+WHERE Milliseconds > (SELECT AVG(Milliseconds) FROM Track)
+ORDER BY Milliseconds DESC;
+```
+	#### insert output data
+
 
 # Detailed Insights and Recomendation
 ## Chinook Team(Staff) Insights
