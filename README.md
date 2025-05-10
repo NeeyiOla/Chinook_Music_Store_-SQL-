@@ -130,8 +130,30 @@ Album
 Relationship:  
 ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the Artist table.
 
+**Track**
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| TrackId | --- | Unique identifier for each Track |
+| Name | --- | Name of the track |
+| AlbumId | --- | Foreign Key referencing the Album table (AlbumId) |
+| MediaTypeId | --- | Foreign Key referencing the Album table (MediaTypeId) |
+| GenreId | --- | Foreign Key referencing the Album table (GenreId) |
+| Composer | --- | Name of the composer |
+| Milliseconds | --- | Durations of the track in milliseconds |
+| Bytes | --- | Size of the track in bytes |
+| Unit Price | --- | Price of the track |
+
+Relationships:
+• AlbumId in the Track table is a foreign key linked to the AlbumId (primary key) in the Album table.
+• MediaTypeId in the Track table is a foreign key linked to the MediaTypeId (primary key) in the MediaType table.
+• GenreId in the Track table is a foreign key linked to the GenreId (primary key) in the Genre table.
 
 
+| --- | --- | --- |
+| --- | --- | --- |
+| --- | --- | --- |
+| --- | --- | --- |
 
 
 # Methodology
