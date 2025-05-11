@@ -280,12 +280,12 @@ Given the comprehensive set of SQL queries of tackling a wide range of analytica
 
 Here are some **EDA checklist** queries that i performed before executing my analysis queries, grouped into logical stages:
 
+##### Schema Undrstanding
 ```sql
 -- List of all tables
 SELECT name FROM sqlite_master WHERE type='table';
 
 -- Columns in a specific tables
-
 PRAGMA table_info('Invoice');
 PRAGMA table_info('MediaType');
 PRAGMA table_info('Customer');
@@ -293,9 +293,99 @@ PRAGMA table_info('Artist');
 PRAGMA table_info('Album');
 
 ```
+##### Table Row Count and Column Summary
+```Sql
+-- Table Row count and Column Summary
+-- this check the volume of records and expected data density in each table
+
+SELECT 'Customer' AS Table_Name, COUNT(*) AS Row_Count FROM Customer
+UNION ALL
+SELECT 'Invoice', COUNT(*) FROM Invoice
+UNION ALL
+SELECT 'InvoiceLine', COUNT(*) FROM InvoiceLine
+UNION ALL
+SELECT 'Track', COUNT(*) FROM Track
+UNION ALL
+SELECT 'Genre', COUNT(*) FROM Genre;
+```
+
+##### Data Quality Checks 3
+```sql
+-- to checks for NULLs in critical fields (As i wouldn't want to join or grou by nulls.)
+SELECT 
+  SUM(CASE WHEN FirstName IS NULL THEN 1 ELSE 0 END) AS Null_FirstNames,
+  SUM(CASE WHEN LastName IS NULL THEN 1 ELSE 0 END) AS Null_LastNames
+FROM Customer;
+
+-- check for duplicates emails
+SELECT Email, COUNT(*) AS Count
+FROM Customer
+GROUP BY Email
+HAVING COUNT(*) > 1;
+
+```
+
+##### Basic Distribution and Aggregation Patterns 4
+```sql
+-- Number of unique values
+SELECT COUNT(DISTINCT BillingCountry) FROM Invoice;
+SELECT COUNT(DISTINCT GenreId) FROM Track;
+
+-- Frequency of countries in invoices
+SELECT BillingCountry, COUNT(*) 
+FROM Invoice
+GROUP BY BillingCountry
+ORDER BY COUNT(*) DESC;
+
+-- Frequency of genres
+SELECT GenreId, COUNT(*) 
+FROM Track
+GROUP BY GenreId
+ORDER BY COUNT(*) DESC;
+
+```
 
 
-### Extacted Queries Analysis
+##### Value Range Checks & Outliers 5
+```sql
+-- Invoice value range
+SELECT MIN(Total), MAX(Total), AVG(Total) FROM Invoice;
+
+-- Track length in milliseconds
+SELECT MIN(Milliseconds), MAX(Milliseconds), AVG(Milliseconds) FROM Track;
+
+```
+
+##### Join Validity 6
+```sql
+-- Are there any orphan rows in relationships?
+SELECT COUNT(*) 
+FROM Invoice
+LEFT JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+WHERE Customer.CustomerId IS NULL;
+
+```
+
+##### Temporal Coverage 7
+```sql
+-- check invoice date ranges
+SELECT 
+    MIN(InvoiceDate) AS StartDate, 
+    MAX(InvoiceDate) AS EndDate
+FROM Invoice;
+
+
+**Benefit of this EDA before extracted queries analysis**
+- The “Top Customer/Top Genre” queries depend on valid joins—EDA confirms those joins won’t fail due to NULLs.
+
+- The media type and country breakdowns rely on complete, non-null sales and invoice data.
+
+- The ranking queries use SUM() and COUNT()—ensuring no outliers or NULLs beforehand improves accuracy.
+
+- The grouping logic assumes categories like Genre, MediaType, and Country are clean and complete—EDA confirms that.
+
+
+### Extracted Queries Analysis
 #### Problem Statement 1: Identify and Understand High-Value Customers
 **Tailored Questions:**  
 ```sql
