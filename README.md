@@ -273,6 +273,27 @@ The  enviroment that is being use in this project is pretty quick to set up by f
 
 ### Exploratory Data Analysis (EDA)
 
+Given the comprehensive set of SQL queries of tackling a wide range of analytical questions. However, before executing these queries, it's essential to perform  Exploratory Data Analysis (EDA) to ensure;
+1. So i could understand the structure and content of my data
+2. My queries return valid, meaningful results.
+3. I would be able to identify data issues (e.g., missing values, unexpected duplicates or outliers).
+
+Here are some **EDA checklist** queries that i performed before executing my analysis queries, grouped into logical stages:
+
+```sql
+-- List of all tables
+SELECT name FROM sqlite_master WHERE type='table';
+
+-- Columns in a specific tables
+
+PRAGMA table_info('Invoice');
+PRAGMA table_info('MediaType');
+PRAGMA table_info('Customer');
+PRAGMA table_info('Artist');
+PRAGMA table_info('Album');
+
+```
+
 
 ### Extacted Queries Analysis
 #### Problem Statement 1: Identify and Understand High-Value Customers
