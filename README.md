@@ -15,18 +15,15 @@
     - [Stakeholders Stories](#Stakeholder-stories)
     - [Acceptance Criteria](#Acceptance-criteria)
     - [Success Criteria](#Success-criteria)
-- [Data Source](#Data-source)
+- [Data Source & Tools](#Data-source-&-Tools)
   - [Database Structure](#Access-Database-Structure)
-  - [Access Database Benefit](#Benefit-of-Access-Storage)
 - [Methodology](#Methodology)
-  - [Tool used](#Tool-Used)
   - [Development](#Development)
   - [Setting up My Local Environment](#Setting_up_My_Local_Environment)
-  - [EDA_Diagram](#EDA_Diagram)
+  - [Data Model_Diagram](#Data_Model_Diagram)
   - [Exploratory Data Analysis (EDA)](#Exploratory_Data_Analysis_(EDA))
-  - [Data_Export_to_Spreedsheet_(CSV)](#Data_Export_to_Spreedsheet_(CSV))
-  - [Analysis](#Analysis)
-  - [Visualisation](#Visualisation)
+  - [Extracted Queries Analysis](#Extracted_Queries_Analysis)
+  - [Export Data from DB Browser into Spreadsheet (CSV)](#Export_Data_from_DB_Browser_into_Spreadsheet_(CSV))
 - [Detailed Insights and Recommendations](#Detailed-Insights-and-Recommendation)
   - [Chinook_Team(Staff)_Insights](#Sales-Pulse-Performance,-Frequency-&-Return-(Executive-Overview))
   - [Executive_Overiew_Insight](#Sales-Performance-&-Customer-Behaviour-(Net-sales-by-Customer-Demographic))
@@ -785,7 +782,7 @@ To create the visualisation that promote detailed insights and recommendation, i
 Select Export to CSV, and then selct the settings that match the ones below. Make sure your setting on Newline character is set to Unix: LF(/n). Then i will be able to use the downloaded queries data in a spreadsheet application.
 ![Export Data from DB Browser into Spreadsheet](Assets/Images/Export_data_to_CSV.png) 
 
-# Detailed Insights and Recomendation
+# Detailed Insights and Recomendations
 ## Chinook Team(Staff) Insights
 ## Executive Overview Insights 
 ## Marketing & Planning Committee Insights
