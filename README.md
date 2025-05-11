@@ -373,6 +373,7 @@ SELECT
     MIN(InvoiceDate) AS StartDate, 
     MAX(InvoiceDate) AS EndDate
 FROM Invoice;
+```
 
 
 **Benefit of this EDA before extracted queries analysis**
