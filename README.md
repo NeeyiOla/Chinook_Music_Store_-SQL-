@@ -16,18 +16,18 @@
   - [Acceptance Criteria](#Acceptance-criteria)
   - [Success Criteria](#Success-criteria)
 - [Data Source & Tools](#Data-source-&-Tools)
-  - [Database Structure](#Access-Database-Structure)
+  - [Data Structure](#Data-Structure)
 - [Methodology](#Methodology)
   - [Development](#Development)
-    - [Setting up My Local Environment](#Setting_up_My_Local_Environment)
-    - [Data Model_Diagram](#Data_Model_Diagram)
+    - [Setting Up My Local Environment](#Setting_Up_My_Local_Environment)
+    - [Database Model_Diagram](#Database_Model_Diagram)
     - [Exploratory Data Analysis (EDA)](#Exploratory_Data_Analysis_(EDA))
     - [Extracted Queries Analysis](#Extracted_Queries_Analysis)
-    - [Export Data from DB Browser into Spreadsheet (CSV)](#Export_Data_from_DB_Browser_into_Spreadsheet_(CSV))
-- [Detailed Insights and Recommendations](#Detailed-Insights-and-Recommendation)
-  - [Chinook_Team(Staff)_Insights](#Sales-Pulse-Performance,-Frequency-&-Return-(Executive-Overview))
-  - [Executive_Overiew_Insight](#Sales-Performance-&-Customer-Behaviour-(Net-sales-by-Customer-Demographic))
-  - [Marketing_&_Planning_Committee_Insight](#Product-portfolio-performance-(Based-on-Gross-Proft))
+    - [Export Data from DB Browser into Spreadsheet](#Export_Data_from_DB_Browser_into_Spreadsheet)
+- [Detailed Insights and Recommendations](#Detailed-Insights-and-Recommendations)
+  - [Chinook_Team(Staff)_Insights](#Chinook_Team(Staff)_Insights)
+  - [Executive Overiew Insight](#Executive_Overiew_Insights)
+  - [Marketing & Planning Committee Insight](#Marketing_&_Planning_Committee_Insights)
 
 # Project Title 
 SQL Analysis of Chinook Music Store: Customer Behavior, Sales Performance & Revenue Insights
@@ -255,7 +255,7 @@ Relationship:
 - Extracted Queries Analysis
 - Exported Data Result
 
-### Setting up my local Environment
+### Setting Up My Local Environment
 The  enviroment that is being use in this project is pretty quick to set up by following the setup below 
 - Downloaded the DB Broweser for SQLite
 - Connected the Broswer to the Database provided by Chinook Music Store
