@@ -113,16 +113,16 @@ To assist to execute the queries ahead, the schema for the Chinook Database is p
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| Artisid | Empty | Unique Identifier of each artist |
-| Name | Empty | Name of the Artist |
+| Artisid | Integer | Unique Identifier of each artist |
+| Name | Nvarcher(120) | Name of the Artist |
  
 **Album Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| AlbumId | Empty | Unique identifier for each Album |
-| Title | Empty | Title of the Album |
-| ArtistId | Empty | Foriegn key referencing the Artist table (ArtistId) |
+| AlbumId | Integer | Unique identifier for each Album |
+| Title | Nvarcher(160) | Title of the Album |
+| ArtistId | Integer | Foriegn key referencing the Artist table (ArtistId) |
 
 Relationship:  
 ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the Artist table.
@@ -131,15 +131,15 @@ ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the A
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| TrackId | --- | Unique identifier for each Track |
-| Name | --- | Name of the track |
-| AlbumId | --- | Foreign Key referencing the Album table (AlbumId) |
-| MediaTypeId | --- | Foreign Key referencing the Album table (MediaTypeId) |
-| GenreId | --- | Foreign Key referencing the Album table (GenreId) |
-| Composer | --- | Name of the composer |
-| Milliseconds | --- | Durations of the track in milliseconds |
-| Bytes | --- | Size of the track in bytes |
-| Unit Price | --- | Price of the track |
+| TrackId | Integer | Unique identifier for each Track |
+| Name | Nvarcher(200) | Name of the track |
+| AlbumId | Integer | Foreign Key referencing the Album table (AlbumId) |
+| MediaTypeId | Integer | Foreign Key referencing the Album table (MediaTypeId) |
+| GenreId | Integer | Foreign Key referencing the Album table (GenreId) |
+| Composer | Nvarcher(220) | Name of the composer |
+| Milliseconds | Integer | Durations of the track in milliseconds |
+| Bytes | Integer | Size of the track in bytes |
+| Unit Price | Numeric(10,2) | Price of the track |
 
 Relationships:  
 - AlbumId in the Track table is a foreign key linked to the AlbumId (primary key) in the Album table.
@@ -150,22 +150,22 @@ Relationships:
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| Media Type | --- | Unique identifier for each media type |
-| Name | --- | Name of the media type |
+| Media Type | Integer | Unique identifier for each media type |
+| Name | Nvarchar(120) | Name of the media type |
 
 **PlayList Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| PlaylistId | --- | Unique identifier for each playlist |
-| Name | --- | Name of Playlist |
+| PlaylistId | Integer | Unique identifier for each playlist |
+| Name | Nvarchar(120) | Name of Playlist |
 
 **Playlist Track Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| PlaylistTrackId | --- | Foreign key referencing the playlist table (PlaylistId) |
-| Track | --- | Name of the playlist track |
+| PlaylistTrackId | Integer | Foreign key referencing the playlist table (PlaylistId) |
+| Track | Integer | Name of the playlist track |
 
 Relationship:  
 - PlaylistId in the PlaylistTrack table is a foreign key linked to the PlaylistId (primary key) in the Playlist table.
@@ -175,56 +175,56 @@ Relationship:
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| GenreId | --- | Unique identifier for each genre |
-| Name | --- | Name of the genre |
+| GenreId | Integer | Unique identifier for each genre |
+| Name | Nvarchar(120) | Name of the genre |
 
 **Empployee Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| EmployeeId | --- | Unique identifier  for each employee |
-| LastName | --- | Last name of the employee |
-| FirstName | --- | First name of the employee |
-| Title | --- | Title of the employee |
-| ReportTo | --- | EmployeeId of the employee’s supervisor |
-| BirtDate | --- | Birth date of the employee |
-| HireDate | --- | Hire date of the employee |
-| Address | --- | Address of the employee |
-| City | --- | City of the employee |
-| State | --- | State of the employee |
-| Country | --- | Country of the employee |
-| PostalCode | --- | Postal Code of the employee |
-| Phone | --- | Phone of the employee |
-| Fax | --- | Fax number of the employee |
-| Email | --- | Email address of the employee |
+| EmployeeId | Integer | Unique identifier  for each employee |
+| LastName | Nvarchar(20) | Last name of the employee |
+| FirstName | Nvarchar(20) | First name of the employee |
+| Title | Narchar(30) | Title of The employee |
+| ReportTo | Integer | EmployeeId of the employee’s supervisor |
+| BirtDate | DATETIME | Birth date of the employee |
+| HireDate | DATETIME | Hire date of the employee |
+| Address | Nvarchar(70) | Address of the employee |
+| City | Nvarchar(40) | City of the employee |
+| State | Nvarchar(40) | State of the employee |
+| Country | Nvarchar(40) | Country of the employee |
+| PostalCode | Nvarchar(10) | Postal Code of the employee |
+| Phone | Nvarchar(24) | Phone of the employee |
+| Fax | Nvarchar(24) | Fax number of the employee |
+| Email | Nvarchar(60) | Email address of the employee |
 
 **Customer Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| CustomerId | --- | Unique identifier for each customer |
-| FirstName | --- | First name of the customer |
-| LastName | --- | Last name of the customer |
-| Company | --- | Company name of the customer |
-| Address | --- | Address of the customer |
-| City | --- | City of the customer |
-| State | --- | State of the customer |
-| Country | --- | Country of the customer |
-| PostalCode | --- | Postal code of the customer |
-| Phone | --- | Phone number of the customer |
-| Fax | --- | Fax number of the customer |
-| Email | --- | Email address of the customer |
-| SupportRepId | --- | EmployeeId of the customer’s support representative. |
+| CustomerId | Integer | Unique identifier for each customer |
+| FirstName | Nvarchar(40) | First name of the customer |
+| LastName | Nvarchar(20) | Last name of the customer |
+| Company | Nvarchar(80) | Company name of the customer |
+| Address | Nvarchar(70) | Address of the customer |
+| City | Nvarchar(40) | City of the customer |
+| State | Nvarchar(40) | State of the customer |
+| Country | Nvarchar(40) | Country of the customer |
+| PostalCode | Nvarchar(10) | Postal code of the customer |
+| Phone | Nvarchar(24) | Phone number of the customer |
+| Fax | Nvarcher(24) | Fax number of the customer |
+| Email | Nvarchar(60) | Email address of the customer |
+| SupportRepId | Integer | EmployeeId of the customer’s support representative. |
 
 **InvoiceLine Table*
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| InvoiceLineId | --- | Unique identifier for each invoice line |
-| InvoiceId | --- | Foreign key referencing the invoice table (InvoiceId) |
-| TrackId | --- | Foreign key referencing the Track table (TrackId) |
-| UnitPrice | --- | Price per unit of the track |
-| Quantity | --- | Quantity of tracks purchased in the invoice line |
+| InvoiceLineId | Integer | Unique identifier for each invoice line |
+| InvoiceId | Integer | Foreign key referencing the invoice table (InvoiceId) |
+| TrackId | Integer | Foreign key referencing the Track table (TrackId) |
+| UnitPrice | Numeric(10,2) | Price per unit of the track |
+| Quantity | Integer | Quantity of tracks purchased in the invoice line |
 
 Relationship:  
 - InvoiceId in the InvoiceLine table is a foreign key linked to the InvoiceId (primary key) in the Invoice table.
@@ -234,15 +234,15 @@ Relationship:
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
-| InvoiceId | --- | Unique identifier for each invoice |
-| CustomerId | --- | Foreign key referencing the customer (CustomerId) |
-| InvoiceDate | --- | Date of the invoice |
-| BillingAddress | --- | Billing address of the invoice |
-| BillingCity | --- | Billing city of the invoice |
-| BillingState | --- | Billing state of the invoice |
-| BillingCountry | --- | Billing country of the invoice |
-| BillingPostalcode | --- | Billing postal code of the invoice |
-| Total | --- | Total amount of the invoice |
+| InvoiceId | Integer | Unique identifier for each invoice |
+| CustomerId | Integer | Foreign key referencing the customer (CustomerId) |
+| InvoiceDate | DATETIME | Date of the invoice |
+| BillingAddress | Nvarchar(70) | Billing address of the invoice |
+| BillingCity | Nvarchar(40) | Billing city of the invoice |
+| BillingState | Nvarchar(40) | Billing state of the invoice |
+| BillingCountry | Nvarchar(40) | Billing country of the invoice |
+| BillingPostalcode | Nvarchar(100) | Billing postal code of the invoice |
+| Total | Numeric(10,2) | Total amount of the invoice |
 
 
 
