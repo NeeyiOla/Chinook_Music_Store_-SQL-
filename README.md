@@ -109,14 +109,14 @@ This prohject addressess these challenges by:
 ## Data Structure
 To assist to execute the queries ahead, the schema for the Chinook Database is provide below.  
   
-**Artist Table*
+**Artist Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | Artisid | Integer | Unique Identifier of each artist |
 | Name | Nvarcher(120) | Name of the Artist |
  
-**Album Table*
+**Album Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -127,7 +127,7 @@ To assist to execute the queries ahead, the schema for the Chinook Database is p
 Relationship:  
 ArtistId in the Album table is for key linked to ArtistId (Primary Key) in the Artist table.
 
-**Track Table*
+**Track Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -146,21 +146,21 @@ Relationships:
 - MediaTypeId in the Track table is a foreign key linked to the MediaTypeId (primary key) in the MediaType table.
 - GenreId in the Track table is a foreign key linked to the GenreId (primary key) in the Genre table.
 
-**MediaType Table*
+**MediaType Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | Media Type | Integer | Unique identifier for each media type |
 | Name | Nvarchar(120) | Name of the media type |
 
-**PlayList Table*
+**PlayList Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | PlaylistId | Integer | Unique identifier for each playlist |
 | Name | Nvarchar(120) | Name of Playlist |
 
-**Playlist Track Table*
+**Playlist Track Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -171,14 +171,14 @@ Relationship:
 - PlaylistId in the PlaylistTrack table is a foreign key linked to the PlaylistId (primary key) in the Playlist table.
 - TrackId in the PlaylistTrack table is a foreign key linked to the TrackId (primary key) in the Track table.
 
-**Genre Table*
+**Genre Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
 | GenreId | Integer | Unique identifier for each genre |
 | Name | Nvarchar(120) | Name of the genre |
 
-**Empployee Table*
+**Empployee Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -198,7 +198,7 @@ Relationship:
 | Fax | Nvarchar(24) | Fax number of the employee |
 | Email | Nvarchar(60) | Email address of the employee |
 
-**Customer Table*
+**Customer Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -216,7 +216,7 @@ Relationship:
 | Email | Nvarchar(60) | Email address of the customer |
 | SupportRepId | Integer | EmployeeId of the customer’s support representative. |
 
-**InvoiceLine Table*
+**InvoiceLine Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
@@ -230,7 +230,7 @@ Relationship:
 - InvoiceId in the InvoiceLine table is a foreign key linked to the InvoiceId (primary key) in the Invoice table.
 - TrackId in the InvoiceLine table is a foreign key linked to the TrackId (primary key) in the Track table.
 
-**Invoice Table*
+**Invoice Table**
 
 | Column Name | Data Type | Description |
 | --- | --- | --- |
