@@ -542,13 +542,14 @@ ORDER BY Tbl.BillingCountry, Tbl.Amount_Spent DESC;
 
 ```sql
 /*
--- Return email, name, and genre for all Rock Music listeners.
+-- Return Rock Music Listener for each country Country.
 */ 
 
 SELECT DISTINCT
     Customer.FirstName,
     Customer.LastName,
     Customer.Email,
+    Customer.Country,
     Genre.Name
 FROM Customer
 JOIN Invoice
@@ -562,7 +563,7 @@ ON Genre.GenreId = Track.GenreId
 WHERE Genre.GenreId = '1'
 ORDER BY Customer.Email;
 ```
-![Problem statement 2 of 1](Assets/Images/info_of_rock_music_listener_2.png) 
+![Problem statement 2 of 1](Assets/Images/Rock_Music_Listener_by_Country.png)
 
 
 ```sql
