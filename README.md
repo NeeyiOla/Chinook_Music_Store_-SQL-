@@ -785,5 +785,69 @@ Select Export to CSV, and then selct the settings that match the ones below. Mak
 
 # Detailed Insights and Recomendations
 ## Chinook Team(Staff) Insights
+
+#### Problem Statement 1
+**Which countires have the most Invoices**  
+![Invoices Count per Country](Assets/Image/Invoice_Count_per_Country.png)  
+
+- USA leads with 91 Invoices, followed by Canada (58), France (35), and Brazil (35).
+- Roughly 15 countries have equal invoice count (7)
+
+**Insight:**  
+The USA and Canada represent the primary customer markets.
+
+**Recomendation:** 
+Priortise events, ads, and product launches in the USA and Canada.  
+Use regional content strategies in lower-volume countries to increase awareness and engagement.
+
+**Which city has the best Customers?**
+As this would support the Event Manager with making decision or planning strategicaly to throw a promotional Music Festival in the cities with the best customers.  
+
+![Top cities with best customer](Assets/Image/Top_Cities_with_Best_Customers.png)
+
+- Prague has the highest-value customer (£90). clearly outperforming others.
+- Others cities like Mountian View, Paris. Sao Paulo and London have similar performance (£75)
+
+**Insight:**  
+Prague is an outlier market with a high-spending individual.  
+
+**Recommendation:**  
+Target Prague for VIP evnets, exclusive merchandies, or ambassador parthnerships.  
+Treat other cities as equally strong strong secondary markets for touring and promotions.  
+
+
+**WHO ARE THE BEST CUSTOMERS**  
+The customers who spent the most money in the history of the music Store.
+
+![Who are the best customers](Assets/Image/Best_Customer_By_Amount_Spent.png)
+
+
+- **Frank Harris** and **Mark Philips** are top spenders, followed by  **Helena Hola** and **Richard Cunningham**.
+- Several customers contribute roughly equally in the mid-tier range (~£45–£50).
+
+**Insight:**  
+Indicate a mix of high-value and consistent mid-tier customers.
+
+**Recommendation:**  
+Offer exclusive perks to top-tier customers (early access, VIP seating).  
+Introduce tiered loyalty programs to retain mid-tier customers and increase spending.  
+
+
+![image](https://github.com/user-attachments/assets/f189297d-e661-4fbf-9567-e97b0194084e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Executive Overview Insights 
 ## Marketing & Planning Committee Insights
