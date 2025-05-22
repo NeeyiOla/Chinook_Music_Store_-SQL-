@@ -25,9 +25,9 @@
     - [Extracted Queries Analysis](#Extracted_Queries_Analysis)
     - [Export Data from DB Browser into Spreadsheet](#Export_Data_from_DB_Browser_into_Spreadsheet)
 - [Detailed Insights and Recommendations](#Detailed-Insights-and-Recommendations)
-  - [Problem Statement 1_Insights](#PROBELM_STATEMENT_1:_Identify_and_Understand_High-Value_Customers)
-  - [Problem Statement 2_Insights](#PROBLEM_STATEMENT_2:_Understand_Music,_Artist_Preference_and_Behaviour)
-  - [Problem_Statement_3_Insights](#PROBLEM_STATEMENT_3:_Optimise_Product_offering_base_on_MediaType_and_Album_Popularity)
+  - [Problem Statement 1 Insights](#PROBELM_STATEMENT_1:_Identify_and_Understand_High-Value_Customers)
+  - [Problem Statement 2 Insights](#PROBLEM_STATEMENT_2:_Understand_Music,_Artist_Preference_and_Behaviour)
+  - [Problem Statement 3 Insights](#PROBLEM_STATEMENT_3:_Optimise_Product_offering_base_on_MediaType_and_Album_Popularity)
 
 # Project Title 
 SQL Analysis of Chinook Music Store: Customer Behavior, Sales Performance & Revenue Insights
