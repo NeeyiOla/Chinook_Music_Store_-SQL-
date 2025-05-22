@@ -846,15 +846,16 @@ For each of the country respresent a single customer who has spent the most in t
 
 - Shows top-spending customers across multiple countries, with values fairly close.
 
-**Insight:** Strong individual engagement is spread evenly across countries.  
+**Insight:**  
+Strong individual engagement is spread evenly across countries.  
 
-**Recommendation:**
-Recognise these users with "Top Fan in Your Country" campaigns.  
+**Recommendation:**  
+- Recognise these users with "Top Fan in Your Country" campaigns.  
 
-Use this insight to develop localized influencer partnerships or spotlight content.
+-  4Use this insight to develop localized influencer partnerships or spotlight content.
 
 
-**ROCK MUSIC LISTENER BY COUNTRY**
+**ROCK MUSIC LISTENER BY COUNTRY?**
 
 ![Rock Muisc listener by country](Assets/Image/Rock_Music_Listener_by_Country.png)
 
@@ -866,12 +867,11 @@ Use this insight to develop localized influencer partnerships or spotlight conte
 Rock music has a strong foothold in North America.
 
 **Recommendation:**  
-Focus Rock merchandise, marketing, and tour plans in the USA and Canada.  
+- Focus Rock merchandise, marketing, and tour plans in the USA and Canada.
+- Conduct audience development campaigns in countries with lower engagement.
 
-Conduct audience development campaigns in countries with lower engagement.
 
-
-**TOP ARTIST WITH THE MOST ROCK GENRE**
+**TOP ARTIST WITH THE MOST ROCK GENRE?**  
 Information about Artrist information to support in decision making when it comes to inviting roct artist to an event or inventory purpose.  
 
 ![Top Artist with the Most Rock Genre](Assets/Image/Top_Rock_Genre_Artist.png)
@@ -884,11 +884,11 @@ Information about Artrist information to support in decision making when it come
 Follows a descending popularity trend.  
 
 **Recommendation:**  
-Prioritize these artists for festival headliners.  
-Create themed playlists, merch bundles, and fan experiences around them.
+- Prioritize these artists for festival headliners.  
+- Create themed playlists, merch bundles, and fan experiences around them.
 
 
-**POPUPLAR GENRE IN EACH COUNTRY**
+**POPUPLAR GENRE IN EACH COUNTRY?**
 
 ![Popular Genre in each Country](Assets/Image/Popular_Genre_in_each_Country.png)
 
@@ -900,43 +900,41 @@ Create themed playlists, merch bundles, and fan experiences around them.
 Genre preferences vary by country but most countires prefered Rock music genre the most.  
 
 **Recommendation:**  
-Curate region-specific setlists for fedtivals.  
-Run genre-based marketing campaings aligned with cultural preferences.  
+- Curate region-specific setlists for fedtivals.  
+- Run genre-based marketing campaings aligned with cultural preferences.  
 For example, rock-heavy festival in the **USA**, Latin-heavy in **Spain**.
 
-**MOST POPULAR MEDIA TYPE**  
+**MOST POPULAR MEDIA TYPE?**  
 
 ![Most Popular Media Type](Assets/Image/Most_popular_media_type.png)
 
-- **MPED Audio File** domainates with 3,3034 records.
+- **MPEG Audio File** domainates with 3,3034 records.
 - Other type (AAC, Protected AAC, MPEG-4) trail far behind.
 
 **Insight:**  
 Most users comsume standard auidio formarts.  
 
 **Recommendation:**  
-Focus inventory and digital licensing on MPEG audio.  
-Avoid overstocking other less_used formats unless tied to exclusive content(e.g video or DRM-protected tracks).
+- Focus inventory and digital licensing on MPEG audio.  
+- Avoid overstocking other less_used formats unless tied to exclusive content(e.g video or DRM-protected tracks).
 
 
-
-**TOP 10 COUNTRY TOTAL SPENT BY MEDIA TYPE AND SPENDING CATEGORIES**
+**TOP 10 COUNTRY TOTAL SPENT BY MEDIA TYPE AND SPENDING CATEGORIES?**
 
 ![Top 10 country total spent](Assets/Image/Top_10_Country_TotalSpent_3._1.png)
 
 - USA leads in spending (≈ $3,830), followed by Canada, France, and Brazil.
 - Countries are categorized into High and Medium Spenders.
 
-
 **Insight:**  
 Your highest revenue markets are clear. USA is the prime target for upsells and exclusive content.  
 
 **Recommendation:**  
-Focus high-budget campaigns in USA and Canada.  
-Target medium spenders with bundled deals or discounts to increase CLV.  
+- Focus high-budget campaigns in USA and Canada.  
+- Target medium spenders with bundled deals or discounts to increase CLV.  
 
 
-**TOP 3 TOTAL SALES & CUSTOMERS CONTRIBUTION FOR EACH YEAR**  
+**TOP 3 TOTAL SALES & CUSTOMERS CONTRIBUTION FOR EACH YEAR?**  
 Top 3 most sold Albums by year and customer count that contributed with Max Date = 2013-12-22 and Min Date = 2009-01-01.  
 
  ![Top 3 total sales & Customers Contribution](Assets/Image/Top_3_Total_Sales_&_Customer_Contribution_count_each_year_3.2.png)
@@ -948,13 +946,11 @@ Top 3 most sold Albums by year and customer count that contributed with Max Date
 Some albums have both high revenue and broad reach, others have fewer but high-value buyers.  
 
 **Recommendation:**  
-Promote Greatest Hits and best-selling albums as premium packages.  
-Consider re-releasing or bundling top albums for new customers.  
+- Promote Greatest Hits and best-selling albums as premium packages.  
+- Consider re-releasing or bundling top albums for new customers.  
+  
 
-
-
-
-**DISTRIBUTION OF MUSIC GREATER THAN AVERAGE MUSIC LENGTH**  
+**DISTRIBUTION OF MUSIC GREATER THAN AVERAGE MUSIC LENGTH?**  
 
 ![Who are the best customers](Assets/Image/Distribution_of_Music_Greater_than_Average_Length_3_3.png)
 
@@ -966,8 +962,8 @@ Consider re-releasing or bundling top albums for new customers.
 Long tracks are rare beyond a certain point. This informs playlist design and helps decide what kind of music suits concert intermissions, streaming bundles, or premium track promotions.  
 
 **Recommendation:**  
-Use shorter-to-medium-length tracks for general playlists.  
-Reserve longer tracks for exclusive or immersive experiences (e.g., live sessions or deluxe editions).  
+- Use shorter-to-medium-length tracks for general playlists.  
+- Reserve longer tracks for exclusive or immersive experiences (e.g., live sessions or deluxe editions).  
 
 
 
