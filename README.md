@@ -640,26 +640,20 @@ ORDER BY Tbl.Country, Tbl.GenreName;
 
 ```sql
 /*
--- Frequency breakdown of each genre sold by media type.
+11. Which is the most popular media type?
 */
 
 SELECT  MediaType.MediaTypeId,
 		MediaType.Name,
-		COUNT(*) AS MediaType_Breakdown,
-		Genre.GenreId
-FROM MediaType
-JOIN Track
-ON Track.MediaTypeId = MediaType.MediaTypeId
-JOIN Genre
-On Genre.GenreId = Track.GenreId
-JOIN InvoiceLine
-ON InvoiceLine.TrackId = Track.TrackId
-JOIN Invoice
-ON Invoice.InvoiceId = InvoiceLine.InvoiceId
-GROUP BY 1, 4
+		COUNT(*) AS MediaType_cOUNT
+FROM Track
+JOIN MediaType
+ON MediaType.MediaTypeId = Track.MediaTypeId
+GROUP BY MediaType.MediaTypeId
 ORDER BY 3 DESC;
+
 ```
-![Problem statement 2 of 4](Assets/Images/MediaType_sales_by_genre_2.png) 
+![Problem statement 2 of 4](Assets/Images/Most_Popular_Media_Type_3.png) 
 
 
 #### Problem Statement 3: Optimize Product Offering Based on Media Type and Album Popularity
@@ -695,22 +689,7 @@ LIMIT 10;
 ```
 ![Problem statement 3 of 1](Assets/Images/Top10__Country_TotalSpent_by_MediaType_3.png) 
 
-```sql
-/*
-11. Which is the most popular media type?
-*/
 
-SELECT  MediaType.MediaTypeId,
-		MediaType.Name,
-		COUNT(*) AS MediaType_cOUNT
-FROM Track
-JOIN MediaType
-ON MediaType.MediaTypeId = Track.MediaTypeId
-GROUP BY MediaType.MediaTypeId
-ORDER BY 3 DESC;
-
-```
-![Problem statement 3 of 2](Assets/Images/Most_Popular_Media_Type_3.png) 
 
 ```sql
 /*
@@ -758,9 +737,6 @@ ORDER BY Year, TotalSales DESC;
 ![Problem statement 3 of 3](Assets/Images/Most_Sold_3_Album_in_each_yr_3.png) 
 
 
-#### Problem Statement 4: Evaluate Product Catalog Based on Track Performance
-**Tailored Question:**
-
 ```sql
 /*
 -- Return all track names that are longer than the average song length.
@@ -787,7 +763,7 @@ Select Export to CSV, and then selct the settings that match the ones below. Mak
 ## Chinook Team(Staff) Insights
 
 #### Problem Statement 1
-**Which countires have the most Invoices**  
+**WHICH COUNTRY HAVE THE MOST INVOICES?**  
 ![Invoices Count per Country](Assets/Image/Invoice_Count_per_Country.png)  
 
 - USA leads with 91 Invoices, followed by Canada (58), France (35), and Brazil (35).
@@ -796,11 +772,11 @@ Select Export to CSV, and then selct the settings that match the ones below. Mak
 **Insight:**  
 The USA and Canada represent the primary customer markets.
 
-**Recomendation:** 
-Priortise events, ads, and product launches in the USA and Canada.  
-Use regional content strategies in lower-volume countries to increase awareness and engagement.
+**Recomendation:**   
+    - Priortise events, ads, and product launches in the USA and Canada.  
+    - Use regional content strategies in lower-volume countries to increase awareness and engagement.
 
-**Which city has the best Customers?**
+**WHICH CITY HAAS THE BEST CUSTOMERS?**  
 As this would support the Event Manager with making decision or planning strategicaly to throw a promotional Music Festival in the cities with the best customers.  
 
 ![Top cities with best customer](Assets/Image/Top_Cities_with_Best_Customers.png)
@@ -812,11 +788,11 @@ As this would support the Event Manager with making decision or planning strateg
 Prague is an outlier market with a high-spending individual.  
 
 **Recommendation:**  
-Target Prague for VIP evnets, exclusive merchandies, or ambassador parthnerships.  
-Treat other cities as equally strong strong secondary markets for touring and promotions.  
+    - Target Prague for VIP evnets, exclusive merchandies, or ambassador parthnerships.  
+    - Treat other cities as equally strong strong secondary markets for touring and promotions.  
 
 
-**WHO ARE THE BEST CUSTOMERS**  
+**WHO ARE THE BEST CUSTOMERS?**  
 The customers who spent the most money in the history of the music Store.
 
 ![Who are the best customers](Assets/Image/Best_Customer_By_Amount_Spent.png)
@@ -829,14 +805,169 @@ The customers who spent the most money in the history of the music Store.
 Indicate a mix of high-value and consistent mid-tier customers.
 
 **Recommendation:**  
-Offer exclusive perks to top-tier customers (early access, VIP seating).  
-Introduce tiered loyalty programs to retain mid-tier customers and increase spending.  
+    - Offer exclusive perks to top-tier customers (early access, VIP seating).  
+    - Introduce tiered loyalty programs to retain mid-tier customers and increase spending.  
+
+**TOP ARTISTS BY INVOICE TOTAL COUNT**  
+Find which artist has the most according to the InvoiceLine count, this is required for the next or solution below.  
+
+![Top Artist by invoice total Count](Assets/Image/Top_Artists_By_Invoice_Total_Count.png)
+
+- Iron Maiden (140) leads, followed by U2 (107), Metallica (91), and Led Zeppelin (87).
+
+**Insight:** A handful of legendary rock artists dominate sales volume.
+
+**Recommendation:**  
+Focus festival headliners and playlist themes around these artists.  
+Bundle their tracks in box sets or “best of” collections.  
 
 
-![image](https://github.com/user-attachments/assets/f189297d-e661-4fbf-9567-e97b0194084e)
+**CUSTOMER CONTRIBUTING TO TOP 1 ARTIST(IRON MAIDEN)**  
+Since we are aware of artist that has the most according to InvoiceLine, then we can tell which customers spent the most on the top-earning artist.  
+
+![Customer contributing to Top 1](Assets/Image/Customer_Contributing_to_Top_1_Artist_Iron_Maiden.png)
+
+
+- **Mark Taylor**, **Madalena Sampaio**, and **Hannah Schneider** top the list of Iron Maiden supporters.  
+- Long-tail of contributors follows with < 5 purchases each.
+
+**Insight:** A few highly dedicated fans drive artist-specific sales.  
+
+**Recommendation:**  
+Uses this for fan club targeting and Iron Maiden-centric events or merchandise. 
+ 
+Encourage the long tail of low-spenders to engage more via exclusive offers.
+
+
+**INVOICE COUNT PER COUNTRY**  
+For each of the country respresent a single customer who has spent the most in that country.
+
+![Inovoice Count per Country](Assets/Image/Invoice_Count_per_Country.png)
+
+- Shows top-spending customers across multiple countries, with values fairly close.
+
+**Insight:** Strong individual engagement is spread evenly across countries.  
+
+**Recommendation:**
+Recognise these users with "Top Fan in Your Country" campaigns.  
+
+Use this insight to develop localized influencer partnerships or spotlight content.
+
+
+**ROCK MUSIC LISTENER BY COUNTRY**
+
+![Rock Muisc listener by country](Assets/Image/Rock_Music_Listener_by_Country.png)
+
+
+- USA (13) and Canada (8) have the highest number of unique Rock listeners.
+- USA (13) and Canada (8) have the highest number of unique Rock listeners.
+
+**Insight:**  
+Rock music has a strong foothold in North America.
+
+**Recommendation:**  
+Focus Rock merchandise, marketing, and tour plans in the USA and Canada.  
+
+Conduct audience development campaigns in countries with lower engagement.
+
+
+**TOP ARTIST WITH THE MOST ROCK GENRE**
+Information about Artrist information to support in decision making when it comes to inviting roct artist to an event or inventory purpose.  
+
+![Top Artist with the Most Rock Genre](Assets/Image/Top_Rock_Genre_Artist.png)
+
+
+- Top artists: **Led Zeppelin**, **U2**, **Deep Purple**, **Iron Maiden**.
+- Follows a descending popularity trend.
+
+**Insight:**  
+Follows a descending popularity trend.  
+
+**Recommendation:**  
+Prioritize these artists for festival headliners.  
+Create themed playlists, merch bundles, and fan experiences around them.
+
+
+**POPUPLAR GENRE IN EACH COUNTRY**
+
+![Popular Genre in each Country](Assets/Image/Popular_Genre_in_each_Country.png)
+
+
+- **Rock** dominates most countries (especially USA, Canada, France).
+- **Latin** is popular in Spain, while Alternative & Punk has nice apeal in few regions.
+
+**Insights:**  
+Genre preferences vary by country but most countires prefered Rock music genre the most.  
+
+**Recommendation:**  
+Curate region-specific setlists for fedtivals.  
+Run genre-based marketing campaings aligned with cultural preferences.  
+For example, rock-heavy festival in the **USA**, Latin-heavy in **Spain**.
+
+**MOST POPULAR MEDIA TYPE**  
+
+![Most Popular Media Type](Assets/Image/Most_popular_media_type.png)
+
+- **MPED Audio File** domainates with 3,3034 records.
+- Other type (AAC, Protected AAC, MPEG-4) trail far behind.
+
+**Insight:**  
+Most users comsume standard auidio formarts.  
+
+**Recommendation:**  
+Focus inventory and digital licensing on MPEG audio.  
+Avoid overstocking other less_used formats unless tied to exclusive content(e.g video or DRM-protected tracks).
 
 
 
+**TOP 10 COUNTRY TOTAL SPENT BY MEDIA TYPE AND SPENDING CATEGORIES**
+
+![Top 10 country total spent](Assets/Image/Top_10_Country_TotalSpent_3._1.png)
+
+- USA leads in spending (≈ $3,830), followed by Canada, France, and Brazil.
+- Countries are categorized into High and Medium Spenders.
+
+
+**Insight:**  
+Your highest revenue markets are clear. USA is the prime target for upsells and exclusive content.  
+
+**Recommendation:**  
+Focus high-budget campaigns in USA and Canada.  
+Target medium spenders with bundled deals or discounts to increase CLV.  
+
+
+**TOP 3 TOTAL SALES & CUSTOMERS CONTRIBUTION FOR EACH YEAR**  
+Top 3 most sold Albums by year and customer count that contributed with Max Date = 2013-12-22 and Min Date = 2009-01-01.  
+
+ ![Top 3 total sales & Customers Contribution](Assets/Image/Top_3_Total_Sales_&_Customer_Contribution_count_each_year_3.2.png)
+
+- **"Greatest Hits"** and **"The Office"** series were consistent top sellers across years.
+- Customer count varies, showing deep loyalty vs. broad appeal trade-offs.
+
+**Insight:**  
+Some albums have both high revenue and broad reach, others have fewer but high-value buyers.  
+
+**Recommendation:**  
+Promote Greatest Hits and best-selling albums as premium packages.  
+Consider re-releasing or bundling top albums for new customers.  
+
+
+
+
+**DISTRIBUTION OF MUSIC GREATER THAN AVERAGE MUSIC LENGTH**  
+
+![Who are the best customers](Assets/Image/Distribution_of_Music_Greater_than_Average_Length_3_3.png)
+
+
+- Most tracks (270) fall between 6.6 and 14.1 minutes.
+- Very few songs exceed 59 minutes.
+
+**Insight:**  
+Long tracks are rare beyond a certain point. This informs playlist design and helps decide what kind of music suits concert intermissions, streaming bundles, or premium track promotions.  
+
+**Recommendation:**  
+Use shorter-to-medium-length tracks for general playlists.  
+Reserve longer tracks for exclusive or immersive experiences (e.g., live sessions or deluxe editions).  
 
 
 
