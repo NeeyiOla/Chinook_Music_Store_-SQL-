@@ -5,7 +5,6 @@
 ![Chinook Music Fest.png](Assets/Images/Chinook_Music_Fest.png)
 
 # Table of Content
-# Table of Content
 - [Project Title](#project-title)
 - [My Role](#my-role)
 - [Project Overview](#project-overview)
