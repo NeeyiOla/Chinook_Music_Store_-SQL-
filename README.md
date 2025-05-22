@@ -25,9 +25,9 @@
     - [Extracted Queries Analysis](#Extracted_Queries_Analysis)
     - [Export Data from DB Browser into Spreadsheet](#Export_Data_from_DB_Browser_into_Spreadsheet)
 - [Detailed Insights and Recommendations](#Detailed-Insights-and-Recommendations)
-  - [Chinook_Team(Staff)_Insights](#Chinook_Team(Staff)_Insights)
-  - [Executive Overiew Insight](#Executive_Overiew_Insights)
-  - [Marketing & Planning Committee Insight](#Marketing_&_Planning_Committee_Insights)
+  - [PROBLEM STATEMENT 1_INSIGHTS](#PROBELM_STATEMENT_1:_Identify_and_Understand_High-Value_Customers)
+  - [PROBLEM STATEMENT 2_INSIGHTS](#PROBLEM_STATEMENT_2:_Understand_Music,_Artist_Preference_and_Behaviour)
+  - [PROBLEM_STATEMENT_3_INSIGHTS](#PROBLEM_STATEMENT_3:_Optimise_Product_offering_base_on_MediaType_and_Album_Popularity)
 
 # Project Title 
 SQL Analysis of Chinook Music Store: Customer Behavior, Sales Performance & Revenue Insights
@@ -65,10 +65,10 @@ This prohject addressess these challenges by:
 # Stakeholder Engagement
 
 ## Target Stakeholder
-- Business Excecutives (Store Mangement, Sales Directors)
+- Business Executives (Store Management, Sales Directors)
 - Marketing and Campaign Teams
 - Event Manager
-- Data Analyts and Reporting Teams
+- Data Analyst and Reporting Teams
 
 ## Use Cases
 - Identify high-value customers and their geographic distribution for targeted promotions
