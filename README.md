@@ -436,6 +436,54 @@ ORDER BY 4 DESC;
 
 ```sql
 /*
+-- Customer who spent the most in each country, and their spending amount.
+-- Making sure query retuen the country along with the top customers and how much money they spent.
+*/
+
+SELECT  
+    Tbl.BillingCountry AS Country,
+    Tbl.FirstName,
+    Tbl.LastName,
+    Tbl.Amount_Spent AS Max_Spent
+FROM (
+    SELECT  
+        Customer.CustomerId,
+        Customer.FirstName,
+        Customer.LastName,
+        Invoice.BillingCountry,
+        SUM(Invoice.Total) AS Amount_Spent
+    FROM Customer
+    JOIN Invoice
+        ON Invoice.CustomerId = Customer.CustomerId
+    GROUP BY Customer.CustomerId, Customer.FirstName, Customer.LastName, Invoice.BillingCountry
+) Tbl
+WHERE Tbl.Amount_Spent = (
+    SELECT MAX(SubTbl.Amount_Spent)
+    FROM (
+        SELECT  
+            Customer.CustomerId,
+            Customer.FirstName,
+            Customer.LastName,
+            Invoice.BillingCountry,
+            SUM(Invoice.Total) AS Amount_Spent
+        FROM Customer
+        JOIN Invoice
+            ON Invoice.CustomerId = Customer.CustomerId
+        GROUP BY Customer.CustomerId, Customer.FirstName, Customer.LastName, Invoice.BillingCountry
+    ) SubTbl
+    WHERE SubTbl.BillingCountry = Tbl.BillingCountry
+)
+ORDER BY Tbl.BillingCountry, Tbl.Amount_Spent DESC;
+
+```
+![Problem statement 1 of 5](Assets/Images/Customer_spent_most_on_music_by_country.png) 
+
+
+#### Problem Statement 2: Understand Music Preferences and Customer Behavior
+**Tailored Questions:**
+
+```sql
+/*
 -- frist, I find which artist has the mostaccording to the InvoiceLines.
 -- then find Which customer spent the most on the top-earning artist?
 */
@@ -494,55 +542,7 @@ ORDER BY Tbl.Total DESC;
 
 ```sql
 /*
--- Customer who spent the most in each country, and their spending amount.
--- Making sure query retuen the country along with the top customers and how much money they spent.
-*/
-
-SELECT  
-    Tbl.BillingCountry AS Country,
-    Tbl.FirstName,
-    Tbl.LastName,
-    Tbl.Amount_Spent AS Max_Spent
-FROM (
-    SELECT  
-        Customer.CustomerId,
-        Customer.FirstName,
-        Customer.LastName,
-        Invoice.BillingCountry,
-        SUM(Invoice.Total) AS Amount_Spent
-    FROM Customer
-    JOIN Invoice
-        ON Invoice.CustomerId = Customer.CustomerId
-    GROUP BY Customer.CustomerId, Customer.FirstName, Customer.LastName, Invoice.BillingCountry
-) Tbl
-WHERE Tbl.Amount_Spent = (
-    SELECT MAX(SubTbl.Amount_Spent)
-    FROM (
-        SELECT  
-            Customer.CustomerId,
-            Customer.FirstName,
-            Customer.LastName,
-            Invoice.BillingCountry,
-            SUM(Invoice.Total) AS Amount_Spent
-        FROM Customer
-        JOIN Invoice
-            ON Invoice.CustomerId = Customer.CustomerId
-        GROUP BY Customer.CustomerId, Customer.FirstName, Customer.LastName, Invoice.BillingCountry
-    ) SubTbl
-    WHERE SubTbl.BillingCountry = Tbl.BillingCountry
-)
-ORDER BY Tbl.BillingCountry, Tbl.Amount_Spent DESC;
-
-```
-![Problem statement 1 of 5](Assets/Images/Customer_spent_most_on_music_by_country.png) 
-
-
-#### Problem Statement 2: Understand Music Preferences and Customer Behavior
-**Tailored Questions:**
-
-```sql
-/*
--- Return Rock Music Listener for each country Country.
+-- Return Rock Music Listener for each country.
 */ 
 
 SELECT DISTINCT
@@ -569,7 +569,7 @@ ORDER BY Customer.Email;
 ```sql
 /*
   -- Who is writing the rock music?
-  -- Write a query that returns the Artist name and total track count of the top 10 rock bands.
+  -- (Optional) Write a query that returns the Artist name and total track count of the top 10 rock bands.
 */
 
 SELECT  Artist.ArtistId,
@@ -638,6 +638,9 @@ ORDER BY Tbl.Country, Tbl.GenreName;
 ![Problem statement 2 of 3](Assets/Images/popular_genre_for_each_country_2.png) 
 
 
+#### Problem Statement 3: Optimize Product Offering Based on Media Type and Album Popularity
+**Tailored Question:**
+
 ```sql
 /*
 11. Which is the most popular media type?
@@ -656,8 +659,6 @@ ORDER BY 3 DESC;
 ![Problem statement 2 of 4](Assets/Images/Most_Popular_Media_Type_3.png) 
 
 
-#### Problem Statement 3: Optimize Product Offering Based on Media Type and Album Popularity
-**Tailored Question:**
 
 ```sql
 /*
@@ -760,9 +761,8 @@ Select Export to CSV, and then selct the settings that match the ones below. Mak
 ![Export Data from DB Browser into Spreadsheet](Assets/Images/Export_data_to_CSV.png) 
 
 # Detailed Insights and Recomendations
-## Chinook Team(Staff) Insights
 
-#### Problem Statement 1
+### PROBLEM STATEMENT 1: Identify and Understand High-Value Customers
 **WHICH COUNTRY HAVE THE MOST INVOICES?**  
 ![Invoices Count per Country](Assets/Image/Invoice_Count_per_Country.png)  
 
@@ -776,7 +776,7 @@ The USA and Canada represent the primary customer markets.
     - Priortise events, ads, and product launches in the USA and Canada.  
     - Use regional content strategies in lower-volume countries to increase awareness and engagement.
 
-**WHICH CITY HAAS THE BEST CUSTOMERS?**  
+**WHICH CITIES HAS THE BEST CUSTOMERS?**  
 As this would support the Event Manager with making decision or planning strategicaly to throw a promotional Music Festival in the cities with the best customers.  
 
 ![Top cities with best customer](Assets/Image/Top_Cities_with_Best_Customers.png)
@@ -808,6 +808,24 @@ Indicate a mix of high-value and consistent mid-tier customers.
     - Offer exclusive perks to top-tier customers (early access, VIP seating).  
     - Introduce tiered loyalty programs to retain mid-tier customers and increase spending.  
 
+
+**INVOICE COUNT PER COUNTRY**  
+For each of the country respresent a single customer who has spent the most in that country.
+
+![Inovoice Count per Country](Assets/Image/Invoice_Count_per_Country.png)
+
+- Shows top-spending customers across multiple countries, with values fairly close.
+
+**Insight:**  
+Strong individual engagement is spread evenly across countries.  
+
+**Recommendation:**  
+- Recognise these users with "Top Fan in Your Country" campaigns.  
+
+- Use this insight to develop localized influencer partnerships or spotlight content.
+
+### PROBLEM STATEMENT 2: Understand Music, Artist Preference and Behaviour 
+
 **TOP ARTISTS BY INVOICE TOTAL COUNT**  
 Find which artist has the most according to the InvoiceLine count, this is required for the next or solution below.  
 
@@ -837,23 +855,6 @@ Since we are aware of artist that has the most according to InvoiceLine, then we
 Uses this for fan club targeting and Iron Maiden-centric events or merchandise. 
  
 Encourage the long tail of low-spenders to engage more via exclusive offers.
-
-
-**INVOICE COUNT PER COUNTRY**  
-For each of the country respresent a single customer who has spent the most in that country.
-
-![Inovoice Count per Country](Assets/Image/Invoice_Count_per_Country.png)
-
-- Shows top-spending customers across multiple countries, with values fairly close.
-
-**Insight:**  
-Strong individual engagement is spread evenly across countries.  
-
-**Recommendation:**  
-- Recognise these users with "Top Fan in Your Country" campaigns.  
-
--  4Use this insight to develop localized influencer partnerships or spotlight content.
-
 
 **ROCK MUSIC LISTENER BY COUNTRY?**
 
@@ -904,6 +905,9 @@ Genre preferences vary by country but most countires prefered Rock music genre t
 - Run genre-based marketing campaings aligned with cultural preferences.  
 For example, rock-heavy festival in the **USA**, Latin-heavy in **Spain**.
 
+
+
+### PROBLEM STATEMENT 3: Optimise Product offering base on MediaType and Album Popularity
 **MOST POPULAR MEDIA TYPE?**  
 
 ![Most Popular Media Type](Assets/Image/Most_popular_media_type.png)
