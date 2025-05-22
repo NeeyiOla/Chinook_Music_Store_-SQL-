@@ -13,7 +13,7 @@
   - [Target Stakeholder](#Target-stakeholder)
   - [Use Cases](#Use-cases)
   - [Stakeholders Stories](#Stakeholder-stories)
-  - [Acceptance Criteria](#Acceptance-criteria)
+  - [Acceptance Criteria](#Acceptance-Criteria)
   - [Success Criteria](#Success-criteria)
 - [Data Source & Tools](#Data-source-&-Tools)
   - [Data Structure](#Data-Structure)
